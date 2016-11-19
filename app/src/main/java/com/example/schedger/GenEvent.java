@@ -15,9 +15,9 @@ public class GenEvent extends Event
 
     public Task getTask() { return task; }
 
-    public GenEvent(String n, DateTime s, DateTime e, String l, String c, Task t)
+    public GenEvent(String n, DateTime s, DateTime e, String l, String c, Task t, boolean r)
     {
-        super(n, s, e, l, c);
+        super(n, s, e, l, c, r);
         task = t;
     }
 }
