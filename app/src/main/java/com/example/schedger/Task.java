@@ -27,12 +27,12 @@ public class Task {
 
     public Task (String name, DateTime startTime, DateTime endTime, int duration)
     {
-            this.name = name;
-            this.startTime = startTime;
-            this.endTime = endTime;
-            this.duration = duration;
-            this.completed = false;
-            Planner.AddTask(this);
+        this.name = name;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.duration = duration;
+        this.completed = false;
+        Planner.AddTask(this);
     }
 
 
@@ -64,12 +64,26 @@ public class Task {
 
     public String getUrgency()
     {
-        if (timeLeft <= 24)
-            return "red";
-        else if (timeLeft <= 72)
-            return "yellow";
-        else
+        int year, month, week, day, hour, minute, totalHours;
+        year = endTime.getYear() - current.getYear();
+        month = endTime.getMonthOfYear() - current.getMonthOfYear();
+        week = endTime.getWeekOfWeekyear() - current.getWeekOfWeekyear();
+        day = endTime.getDayOfMonth() - current.getDayOfMonth();
+        hour = endTime.getHourOfDay() - current.getHourOfDay();
+        minute = endTime.getHourOfDay() - current.getHourOfDay();
+
+        if (year > 0 || month > 0 || week > 0)
             return "green";
+        if (day > 0) {
+            totalHours = day * 24;
+            if (hour > 0)
+                totalHours += hour;
+            if (totalHours <= 24)
+                return "red";
+            else
+                return "yellow";
+        }
+        return "green";
     }
 
     public String getTimeLeft()

@@ -1,7 +1,11 @@
 package com.example.schedger;
 
+import org.joda.time.DateTime;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+
+import static android.R.attr.start;
 
 /**
  * An event is a scheduled timeframe during which the user cannot do anything else. Examples include
@@ -21,20 +25,20 @@ public class Event
         this.name = name;
     }
 
-    public Calendar getStart() {
-        return start;
+    public DateTime getStart() {
+        return startTime;
     }
 
-    public void setStart(Calendar start) {
-        this.start = start;
+    public void setStart(DateTime start) {
+        this.startTime = start;
     }
 
-    public Calendar getEnd() {
-        return end;
+    public DateTime getEnd() {
+        return endTime;
     }
 
-    public void setEnd(Calendar end) {
-        this.end = end;
+    public void setEnd(DateTime end) {
+        this.endTime = end;
     }
 
     public String getComments() {
@@ -46,8 +50,8 @@ public class Event
     }
 
     private String name;
-    private Calendar start;
-    private Calendar end;
+    private DateTime startTime;
+    private DateTime endTime;
 
     public String getLocation() {
         return location;
@@ -67,11 +71,11 @@ public class Event
      * @param l location
      * @param c comments
      */
-    public Event(String n, Calendar s, Calendar e, String l, String c)
+    public Event(String n, DateTime s, DateTime e, String l, String c)
     {
         name = n;
-        start = s;
-        end = e;
+        startTime = s;
+        endTime = e;
         location = l;
         comments = c;
         Planner.AddEvent(this);
@@ -79,6 +83,8 @@ public class Event
 
     /**
      * @return the duration of this event in milliseconds
+     *
      */
-    public long duration() { return end.getTimeInMillis() - start.getTimeInMillis(); }
+    //TODO Fix duration time to include more than just hour
+    public long duration() { return endTime.getHourOfDay() - startTime.getHourOfDay(); }
 }
