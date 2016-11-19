@@ -12,13 +12,15 @@ public class Events extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events);
 
-        LinearLayout events = (LinearLayout )findViewById(R.id.events);
+        LinearLayout eventsList = (LinearLayout )findViewById(R.id.eventsList);
+
+
 
         for( int i = 0; i < Planner.events.size(); i++ )
         {
             TextView textView = new TextView(this);
             textView.setText(Planner.events.get(i).getName());
-            events.addView(textView);
+            eventsList.addView(textView);
         }
     }
 

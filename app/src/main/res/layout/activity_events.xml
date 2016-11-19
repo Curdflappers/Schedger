@@ -13,7 +13,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layour_orientation = "vertical"
+        android:orientation = "vertical"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
@@ -25,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:id="@+id/events"
+                android:id="@+id/eventsList"
                 android:orientation="vertical"
                 android:paddingLeft="16dp">
             </LinearLayout>
