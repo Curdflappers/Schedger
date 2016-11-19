@@ -33,6 +33,13 @@ public class MainActivity extends AppCompatActivity {
 
 
         LinearLayout events = (LinearLayout )findViewById(R.id.events);
+        tasks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent tasks_intent = new Intent(MainActivity.this,Events.class);
+                startActivity(tasks_intent );
+            }
+        });
 
         DateTime startTime = new DateTime(2016, 11, 19, 13, 20);
         DateTime endTime = new DateTime(2016, 11, 20, 14, 20);
