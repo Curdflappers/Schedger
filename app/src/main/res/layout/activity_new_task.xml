@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_new_task"
     android:layout_width="match_parent"
@@ -13,20 +14,20 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/wrapperLayout">
+        android:layout_height="wrap_content"
+        android:id="@+id/taskWrapperLayout">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/nameLayout">
+            android:id="@+id/taskNameLayout">
 
             <TextView
                 android:text="Task Name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView" />
+                android:id="@+id/taskNameText" />
 
             <EditText
                 android:layout_width="match_parent"
@@ -34,7 +35,7 @@
                 android:inputType="textPersonName"
                 android:text="Name"
                 android:ems="10"
-                android:id="@+id/editText" />
+                android:id="@+id/taskNameEdit" />
 
         </LinearLayout>
 
@@ -42,28 +43,28 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/dateLayout">
+            android:id="@+id/taskDateLayout">
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:id="@+id/startLayout">
+                android:id="@+id/taskStartLayout">
 
                 <TextView
                     android:text="Start"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView2" />
+                    android:id="@+id/taskStartText" />
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="date"
                     android:ems="10"
-                    android:id="@+id/editText2"
-                    android:text="Start Date" />
+                    android:id="@+id/taskStartEdit"
+                    android:text="Start DateTime" />
             </LinearLayout>
 
             <LinearLayout
@@ -75,18 +76,18 @@
 
 
                 <TextView
-                    android:text="End"
+                    android:text="Complete by"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView3" />
+                    android:id="@+id/taskEndText" />
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="date"
                     android:ems="10"
-                    android:id="@+id/editText3"
-                    android:text="End Date" />
+                    android:id="@+id/taskEndEdit"
+                    android:text="End DateTime" />
 
             </LinearLayout>
 
@@ -96,22 +97,34 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/durationLayout">
+            android:id="@+id/taskDurationLayout">
 
             <TextView
                 android:text="Duration"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView4" />
+                android:id="@+id/taskDurationText" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
-                android:id="@+id/editText4"
+                android:id="@+id/taskDurationEdit"
                 android:text="[Time] minutes" />
+
         </LinearLayout>
 
     </LinearLayout>
+
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:id="@+id/saveTaskButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="45dp"
+        android:onClick="saveTask" />
 </RelativeLayout>
