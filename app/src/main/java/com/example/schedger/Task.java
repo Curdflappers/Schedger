@@ -72,18 +72,24 @@ public class Task {
         hour = endTime.getHourOfDay() - current.getHourOfDay();
         minute = endTime.getHourOfDay() - current.getHourOfDay();
 
+        totalHours = 0;
+
         if (year > 0 || month > 0 || week > 0)
             return "green";
         if (day > 0) {
             totalHours = day * 24;
             if (hour > 0)
                 totalHours += hour;
-            if (totalHours <= 24)
-                return "red";
-            else
-                return "yellow";
         }
-        return "green";
+        else if (hour > 0)
+            totalHours = hour;
+
+        if (totalHours <= 24)
+            return "red";
+        else if (totalHours <= 72)
+            return "yellow";
+        else
+            return "green";
     }
 
     public String getTimeLeft()
@@ -96,11 +102,6 @@ public class Task {
         day = endTime.getDayOfMonth() - current.getDayOfMonth();
         hour = endTime.getHourOfDay() - current.getHourOfDay();
         minute = endTime.getHourOfDay() - current.getHourOfDay();
-
-        if (day > 0)
-            this.timeLeft = (day * 24) + hour;
-        else
-            this.timeLeft = hour;
 
         timeLeft = "Due in: ";
 
