@@ -1,6 +1,8 @@
 package com.example.schedger;
 
 import org.joda.time.DateTime;
+import org.joda.time.Duration;
+import org.joda.time.Period;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,18 +14,17 @@ import static android.R.id.edit;
  * Created by Payton on 11/19/2016.
  */
 
-public class Task {
+public class Task implements Comparable<Task> {
     //Inititalize instances of Task
 
     private String name;
     private DateTime startTime;
     private DateTime endTime;
-    private int duration;
+    private Duration duration;
     private boolean completed;
     private DateTime dt;
-    private int timeLeft;
 
-    public Task (String name, DateTime startTime, DateTime endTime, int duration)
+    public Task (String name, DateTime startTime, DateTime endTime, Duration duration)
     {
         this.name = name;
         this.startTime = startTime;
@@ -31,6 +32,27 @@ public class Task {
         this.duration = duration;
         this.completed = false;
         Planner.AddTask(this);
+    }
+
+    /**
+     * Sort by: endTime, duration,
+     * @param other
+     */
+    public int compareTo(Task other)
+    {
+        long diff = this.endTime.getMillis() - other.endTime.getMillis();
+        if(diff != 0) { return (int)diff; }
+
+        return 0;
+    }
+
+    public boolean equals(Object other)
+    {
+        if(other instanceof Task)
+        {
+            return this.compareTo((Task)other) == 0;
+        }
+        return false;
     }
 
     public String getName()
@@ -43,12 +65,12 @@ public class Task {
         this.name = name;
     }
 
-    public int getDuration()
+    public Duration getDuration()
     {
         return duration;
     }
 
-    public void editDuration(int duration)
+    public void editDuration(Duration duration)
     {
         this.duration = duration;
     }
@@ -84,8 +106,6 @@ public class Task {
         else if (hour > 0)
             totalHours += hour;
 
-        this.timeLeft = totalHours;
-
         if (totalHours <= 24)
             return "red";
         else if (totalHours <= 72)
@@ -96,15 +116,15 @@ public class Task {
 
     public String getTimeLeft()
     {
-        //TODO these are all wrong lol
-        int years, months, weeks, days, hours, minutes;
+        int months, weeks, days, hours, minutes;
         String timeLeft;
-        years = endTime.getYear() - getCurrent().getYear();
-        months = endTime.getMonthOfYear() - getCurrent().getMonthOfYear();
-        weeks = endTime.getWeekOfWeekyear() - getCurrent().getWeekOfWeekyear();
-        days = endTime.getDayOfMonth() - getCurrent().getDayOfMonth();
-        hours = endTime.getHourOfDay() - getCurrent().getHourOfDay();
-        minutes = endTime.getHourOfDay() - getCurrent().getHourOfDay();
+        DateTime current = getCurrent();
+        Period period = new Period(current, endTime);
+        months = period.getMonths();
+        weeks = period.getWeeks();
+        days = period.getDays();
+        hours = period.getHours();
+        minutes = period.getMinutes();
 
         timeLeft = "Due in:";
 

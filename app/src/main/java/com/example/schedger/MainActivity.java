@@ -10,6 +10,7 @@ import android.widget.TextView;
 import net.danlew.android.joda.JodaTimeAndroid;
 
 import org.joda.time.DateTime;
+import org.joda.time.Duration;
 
 import static com.example.schedger.R.color.red;
 import static com.example.schedger.R.drawable.border;
@@ -45,19 +46,15 @@ public class MainActivity extends AppCompatActivity {
         DateTime endTime = new DateTime(2016, 11, 20, 14, 20);
         DateTime finalTime = new DateTime(2016, 12, 24, 13, 20);
 
-        Task task1 = new Task("Complete Math HW", startTime, startTime, 1);
-        Task task2 = new Task("Complete Science HW", startTime, startTime, 1);
-        Task task3 = new Task("test", startTime, startTime, 1);
-        Task task4 = new Task("test", endTime, endTime, 1);
-        Task task5 = new Task("test", startTime, startTime, 1);
-        Task task6 = new Task("test", endTime, endTime, 1);
-        Task task7 = new Task("test", startTime, startTime, 1);
-        Task task8 = new Task("test", startTime, finalTime, 1);
-
-        for (int i = 0; i < Planner.tasks.size(); i++)
-        {
-
-        }
+        // initialize tasks
+        Task task1 = new Task("09Math Homework", startTime, endTime.plus(9), new Duration(1));
+        Task task2 = new Task("05Chem Homework", startTime, endTime.plus(5), new Duration(1));
+        Task task3 = new Task("-1Run Errands", startTime, endTime.plus(-1), new Duration(1));
+        Task task4 = new Task("12Buy Groceries", startTime, endTime.plus(12), new Duration(1));
+        Task task5 = new Task("French Homework", startTime, endTime, new Duration(1));
+        Task task6 = new Task("Comp Sci Project", startTime, endTime, new Duration(1));
+        Task task7 = new Task("Comp Sci Exam (Study)", startTime, endTime, new Duration(1));
+        Task task8 = new Task("French Exam (Study)", startTime, endTime, new Duration(1));
 
         for( int i = 0; i < Planner.tasks.size(); i++ )
         {

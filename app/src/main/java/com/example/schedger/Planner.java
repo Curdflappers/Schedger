@@ -18,10 +18,33 @@ public class Planner {
     public static ArrayList<Event> events = new ArrayList<Event>();
 
 
+    /**
+     * Automatically inserts the task and maintains list sorting
+     * Inserts using a binary search
+     * @param task
+     */
+    //TODO check if this works!
     public static void AddTask(Task task) {
-        tasks.add(task);
+        int start = 0;
+        int end = tasks.size() - 1;
+        while(end > start)
+        {
+            int middle = (start + end) / 2;
+            int compare = task.compareTo(tasks.get(middle));
+            if(compare == 0) { start = middle; break; }
+            if(compare < 0) // check first half
+            {
+                end = middle - 1;
+            }
+            else { start = middle + 1;}
+        }
+        tasks.add(start, task);
     }
 
+    /**
+     * Automatically inserts the event and maintaints list sorting
+     * @param event
+     */
     public static void AddEvent(Event event) {
         events.add(event);
     }
