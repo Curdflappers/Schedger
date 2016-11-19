@@ -4,6 +4,10 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 /**
+ * An event is a scheduled timeframe during which the user cannot do anything else. Examples include
+ * lectures, work, doing homework, or socializing.
+ *
+ * An event knows its duration and location as well.
  * Created by mwwie on 2016-11-19.
  */
 
