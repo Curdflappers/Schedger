@@ -68,6 +68,8 @@ public class Task {
 
         totalHours = 0;
 
+        totalHours = 0;
+
         if (year > 0 || month > 0 || week > 0)
             return "green";
         if (day > 0) {
