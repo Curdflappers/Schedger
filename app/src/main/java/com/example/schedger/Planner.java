@@ -1,3 +1,5 @@
+package com.example.schedger;
+
 /**
  * Program tracks various information to help college students and presents it back to them in an
  * organized, easy to read app. Information includes: tasks, which will be listed from top to
@@ -9,13 +11,14 @@
  * their related task is completed; they are colored dark blue.  * Users will be able to add or \
  * delete tasks and regular events at any time.
  */
-
 public class Planner {
+
     /**
      * Main method of the program
      * @param args
      */
     public static void main(String[] args){
+
         //Titles
         String title = "Weekly Planner";
         String taskTitle = "Tasks";
