@@ -1,5 +1,8 @@
 package com.example.schedger;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 /**
  * Created by mwwie on 2016-11-19.
  */
@@ -14,19 +17,19 @@ public class Event
         this.name = name;
     }
 
-    public long getStart() {
+    public Calendar getStart() {
         return start;
     }
 
-    public void setStart(long start) {
+    public void setStart(Calendar start) {
         this.start = start;
     }
 
-    public long getEnd() {
+    public Calendar getEnd() {
         return end;
     }
 
-    public void setEnd(long end) {
+    public void setEnd(Calendar end) {
         this.end = end;
     }
 
@@ -39,8 +42,8 @@ public class Event
     }
 
     private String name;
-    private long start;
-    private long end;
+    private Calendar start;
+    private Calendar end;
 
     public String getLocation() {
         return location;
@@ -53,7 +56,14 @@ public class Event
     private String location;
     private String comments;
 
-    public Event(String n, long s, long e, String l, String c)
+    /**
+     * @param n name
+     * @param s start
+     * @param e end
+     * @param l location
+     * @param c comments
+     */
+    public Event(String n, Calendar s, Calendar e, String l, String c)
     {
         name = n;
         start = s;
@@ -62,5 +72,8 @@ public class Event
         comments = c;
     }
 
-    public long duration() { return end - start; }
+    /**
+     * @return the duration of this event in milliseconds
+     */
+    public long duration() { return end.getTimeInMillis() - start.getTimeInMillis(); }
 }
