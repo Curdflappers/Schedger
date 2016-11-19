@@ -17,5 +17,6 @@ public class GenEvent extends Event
     {
         super(n, s, e, l, c);
         setTask(t);
+
     }
 }
