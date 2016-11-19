@@ -33,11 +33,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         LinearLayout events = (LinearLayout )findViewById(R.id.events);
-        tasks.setOnClickListener(new View.OnClickListener() {
+        events.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent tasks_intent = new Intent(MainActivity.this,Events.class);
-                startActivity(tasks_intent );
+                Intent events_intent = new Intent(MainActivity.this,Events.class);
+                startActivity(events_intent );
             }
         });
 

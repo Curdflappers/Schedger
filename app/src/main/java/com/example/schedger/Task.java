@@ -15,8 +15,6 @@ import static android.R.id.edit;
 public class Task {
     //Inititalize instances of Task
 
-    private static Date juDate = new Date();
-    private static DateTime current = new DateTime(juDate);
     private String name;
     private DateTime startTime;
     private DateTime endTime;
@@ -62,15 +60,19 @@ public class Task {
         return completed;
     }
 
+    public DateTime getCurrent() { return new DateTime(); }
+
     public String getUrgency()
     {
         int year, month, week, day, hour, minute, totalHours;
-        year = endTime.getYear() - current.getYear();
-        month = endTime.getMonthOfYear() - current.getMonthOfYear();
-        week = endTime.getWeekOfWeekyear() - current.getWeekOfWeekyear();
-        day = endTime.getDayOfMonth() - current.getDayOfMonth();
-        hour = endTime.getHourOfDay() - current.getHourOfDay();
-        minute = endTime.getHourOfDay() - current.getHourOfDay();
+        year = endTime.getYear() - getCurrent().getYear();
+        month = endTime.getMonthOfYear() - getCurrent().getMonthOfYear();
+        week = endTime.getWeekOfWeekyear() - getCurrent().getWeekOfWeekyear();
+        day = endTime.getDayOfMonth() - getCurrent().getDayOfMonth();
+        hour = endTime.getHourOfDay() - getCurrent().getHourOfDay();
+        minute = endTime.getHourOfDay() - getCurrent().getHourOfDay();
+
+        totalHours = 0;
 
         if (year > 0 || month > 0 || week > 0)
             return "green";
@@ -78,29 +80,30 @@ public class Task {
             totalHours = day * 24;
             if (hour > 0)
                 totalHours += hour;
-            if (totalHours <= 24)
-                return "red";
-            else
-                return "yellow";
         }
-        return "green";
+        else if (hour > 0)
+            totalHours += hour;
+
+        this.timeLeft = totalHours;
+
+        if (totalHours <= 24)
+            return "red";
+        else if (totalHours <= 72)
+            return "yellow";
+        else
+            return "green";
     }
 
     public String getTimeLeft()
     {
         int year, month, week, day, hour, minute;
         String timeLeft;
-        year = endTime.getYear() - current.getYear();
-        month = endTime.getMonthOfYear() - current.getMonthOfYear();
-        week = endTime.getWeekOfWeekyear() - current.getWeekOfWeekyear();
-        day = endTime.getDayOfMonth() - current.getDayOfMonth();
-        hour = endTime.getHourOfDay() - current.getHourOfDay();
-        minute = endTime.getHourOfDay() - current.getHourOfDay();
-
-        if (day > 0)
-            this.timeLeft = (day * 24) + hour;
-        else
-            this.timeLeft = hour;
+        year = endTime.getYear() - getCurrent().getYear();
+        month = endTime.getMonthOfYear() - getCurrent().getMonthOfYear();
+        week = endTime.getWeekOfWeekyear() - getCurrent().getWeekOfWeekyear();
+        day = endTime.getDayOfMonth() - getCurrent().getDayOfMonth();
+        hour = endTime.getHourOfDay() - getCurrent().getHourOfDay();
+        minute = endTime.getHourOfDay() - getCurrent().getHourOfDay();
 
         timeLeft = "Due in: ";
 
