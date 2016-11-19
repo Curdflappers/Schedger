@@ -1,5 +1,7 @@
 package com.example.schedger;
 
+import java.util.ArrayList;
+
 /**
  * Program tracks various information to help college students and presents it back to them in an
  * organized, easy to read app. Information includes: tasks, which will be listed from top to
@@ -12,23 +14,10 @@ package com.example.schedger;
  * delete tasks and regular events at any time.
  */
 public class Planner {
+    public static ArrayList<Task> tasks = new ArrayList<Task>();
 
-    /**
-     * Main method of the program
-     * @param args
-     */
-    public static void main(String[] args){
 
-        //Titles
-        String title = "Weekly Planner";
-        String taskTitle = "Tasks";
-        String agendaTitle = "Agenda";
-
-        //Navigates users to relevant pages
-        String seeMoreTasks = "See More " + Character.toString((char)10142);
-        String seeMoreAgenda = "See More " + Character.toString((char)10142);
-        String seeNextWeek = "See next 7 days " + Character.toString((char)10142);
+    public static void AddTask(Task task) {
+        tasks.add(task);
     }
-
-
 }

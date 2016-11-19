@@ -10,8 +10,8 @@ import static android.R.id.edit;
  */
 
 public class Task {
+    //Inititalize instances of Task
 
-    public static ArrayList<Task> tasks = new ArrayList<Task>();
 
     private String name;
     private int startTime;
@@ -21,13 +21,15 @@ public class Task {
 
     public Task (String name, int startTime, int endTime, int duration)
     {
-        this.name = name;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.duration = duration;
-        this.completed = false;
-        tasks.add(this);
+            this.name = name;
+            this.startTime = startTime;
+            this.endTime = endTime;
+            this.duration = duration;
+            this.completed = false;
+            Planner.AddTask(this);
     }
+
+
 
     public String getName()
     {
