@@ -15,8 +15,10 @@ import static android.R.id.edit;
 public class Task {
     //Inititalize instances of Task
 
+    public static Task currentTask;
+
     private static Date juDate = new Date();
-    private static DateTime current = new DateTime(juDate);
+    private static DateTime current = new DateTime();
     private String name;
     private DateTime startTime;
     private DateTime endTime;
