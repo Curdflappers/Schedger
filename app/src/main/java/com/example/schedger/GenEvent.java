@@ -2,8 +2,6 @@ package com.example.schedger;
 
 import org.joda.time.DateTime;
 
-import java.util.Calendar;
-
 /**
  * Created by mwwie on 2016-11-19.
  */

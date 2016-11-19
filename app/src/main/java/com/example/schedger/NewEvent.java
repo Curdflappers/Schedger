@@ -3,6 +3,9 @@ package com.example.schedger;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+/**
+ * Defines behavior for New Event Activity
+ */
 public class NewEvent extends AppCompatActivity {
 
     @Override
