@@ -33,8 +33,6 @@ public class Task {
         Planner.AddTask(this);
     }
 
-
-
     public String getName()
     {
         return name;
@@ -98,31 +96,42 @@ public class Task {
 
     public String getTimeLeft()
     {
-        int year, month, week, day, hour, minute;
+        //TODO these are all wrong lol
+        int years, months, weeks, days, hours, minutes;
         String timeLeft;
-        year = endTime.getYear() - getCurrent().getYear();
-        month = endTime.getMonthOfYear() - getCurrent().getMonthOfYear();
-        week = endTime.getWeekOfWeekyear() - getCurrent().getWeekOfWeekyear();
-        day = endTime.getDayOfMonth() - getCurrent().getDayOfMonth();
-        hour = endTime.getHourOfDay() - getCurrent().getHourOfDay();
-        minute = endTime.getHourOfDay() - getCurrent().getHourOfDay();
+        years = endTime.getYear() - getCurrent().getYear();
+        months = endTime.getMonthOfYear() - getCurrent().getMonthOfYear();
+        weeks = endTime.getWeekOfWeekyear() - getCurrent().getWeekOfWeekyear();
+        days = endTime.getDayOfMonth() - getCurrent().getDayOfMonth();
+        hours = endTime.getHourOfDay() - getCurrent().getHourOfDay();
+        minutes = endTime.getHourOfDay() - getCurrent().getHourOfDay();
 
-        timeLeft = "Due in: ";
+        timeLeft = "Due in:";
 
-        if (month > 0)
-            timeLeft += month + " months, ";
-        if (week > 0)
-            timeLeft += week + " weeks, ";
-        if (day > 0)
-            timeLeft += day + " days, ";
-        if (hour > 0)
-            timeLeft += hour + " hours, ";
-        if (minute > 0 || !(week > 0))
-            timeLeft += minute + " minutes";
+        // how many time intervals have been recorded
+        int detailsAdded = 0;
 
+        if (months > 0) {
+            timeLeft += " " + months + " month" + (months > 1 ? "s" : "");
+            detailsAdded++;
+        }
+        if (weeks > 0) {
+            timeLeft += (detailsAdded > 0 ? ", " : " ") + weeks + " week" + (weeks > 1 ? "s" : "");
+            detailsAdded++;
+        }
+        if (detailsAdded < 2 && days > 0) {
+            timeLeft += (detailsAdded > 0 ? ", " : " ") + days + " day" + (days > 1 ? "s" : "");
+            detailsAdded++;
+        }
+        if (detailsAdded < 2 && hours > 0) {
+            timeLeft += (detailsAdded > 0 ? ", " : " ") + hours + " hour" + (hours > 1 ? "s" : "");
+            detailsAdded++;
+        }
+        if (detailsAdded < 2 && minutes > 0) {
+            timeLeft += (detailsAdded > 0 ? ", " : " ") + minutes + " minute" +
+                    (minutes > 1 ? "s" : "");
+        }
 
         return timeLeft;
-
     }
-
 }
