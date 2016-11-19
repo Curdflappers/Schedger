@@ -18,7 +18,8 @@
         <activity android:name=".NewTaskActivity" />
         <activity android:name=".NewEvent" />
         <activity android:name=".Events" />
-        <activity android:name=".TaskActivity"></activity>
+        <activity android:name=".TaskActivity" />
+        <activity android:name=".QuietHoursActivity"></activity>
     </application>
 
 </manifest>

@@ -17,7 +17,7 @@ public class GenEvent extends Event
 
     public GenEvent(String n, DateTime s, DateTime e, String l, String c, Task t)
     {
-        super(n, s, e, l, c);
+        super(n, s, e, l, c, false);
         task = t;
     }
 }

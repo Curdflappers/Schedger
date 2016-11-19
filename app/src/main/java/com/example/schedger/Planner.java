@@ -23,10 +23,9 @@ public class Planner {
      * Inserts using a binary search
      * @param task
      */
-    //TODO check if this works!
     public static void AddTask(Task task) {
         int start = 0;
-        int end = tasks.size() - 1;
+        int end = tasks.size();
         while(end > start)
         {
             int middle = (start + end) / 2;
@@ -34,7 +33,7 @@ public class Planner {
             if(compare == 0) { start = middle; break; }
             if(compare < 0) // check first half
             {
-                end = middle - 1;
+                end = middle;
             }
             else { start = middle + 1;}
         }
