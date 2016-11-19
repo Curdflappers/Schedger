@@ -17,6 +17,7 @@
         </activity>
         <activity android:name=".NewTaskActivity" />
         <activity android:name=".NewEvent"></activity>
+        <activity android:name=".Events"></activity>
     </application>
 
 </manifest>

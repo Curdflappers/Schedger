@@ -15,9 +15,14 @@ import java.util.ArrayList;
  */
 public class Planner {
     public static ArrayList<Task> tasks = new ArrayList<Task>();
+    public static ArrayList<Event> events = new ArrayList<Event>();
 
 
     public static void AddTask(Task task) {
         tasks.add(task);
+    }
+
+    public static void AddEvent(Event event) {
+        events.add(event);
     }
 }

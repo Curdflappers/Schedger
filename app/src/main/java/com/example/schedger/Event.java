@@ -74,6 +74,7 @@ public class Event
         end = e;
         location = l;
         comments = c;
+        Planner.AddEvent(this);
     }
 
     /**
