@@ -52,6 +52,7 @@ public class Event
     private String name;
     private DateTime startTime;
     private DateTime endTime;
+    private boolean recur;
 
     public String getLocation() {
         return location;
@@ -71,13 +72,14 @@ public class Event
      * @param l location
      * @param c comments
      */
-    public Event(String n, DateTime s, DateTime e, String l, String c)
+    public Event(String n, DateTime s, DateTime e, String l, String c, boolean r)
     {
         name = n;
         startTime = s;
         endTime = e;
         location = l;
         comments = c;
+        recur = r;
         Planner.AddEvent(this);
     }
 
