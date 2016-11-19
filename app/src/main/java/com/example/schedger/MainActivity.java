@@ -1,8 +1,8 @@
 package com.example.schedger;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -11,9 +11,6 @@ import net.danlew.android.joda.JodaTimeAndroid;
 
 import org.joda.time.DateTime;
 import org.joda.time.Duration;
-
-import static com.example.schedger.R.color.red;
-import static com.example.schedger.R.drawable.border;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         tasks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent tasks_intent = new Intent(MainActivity.this,Events.class);
+                Intent tasks_intent = new Intent(MainActivity.this,TaskActivity.class);
                 startActivity(tasks_intent );
             }
         });

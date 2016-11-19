@@ -12,6 +12,8 @@ public class Events extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events);
 
+        LinearLayout taskList = (LinearLayout) findViewById(R.id.tasks);
+
         LinearLayout eventsList = (LinearLayout )findViewById(R.id.eventsList);
 
 

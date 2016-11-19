@@ -4,12 +4,6 @@ import org.joda.time.DateTime;
 import org.joda.time.Duration;
 import org.joda.time.Period;
 
-import java.util.ArrayList;
-import java.util.Date;
-
-import static android.R.attr.start;
-import static android.R.id.edit;
-
 /**
  * Created by Payton on 11/19/2016.
  */
@@ -153,5 +147,9 @@ public class Task implements Comparable<Task> {
         }
 
         return timeLeft;
+    }
+    @Override
+    public String toString(){
+        return getName() + "\n" + getDuration() + "\n" + getTimeLeft() + "\n";
     }
 }
