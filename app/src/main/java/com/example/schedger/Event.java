@@ -1,11 +1,7 @@
 package com.example.schedger;
 
 import org.joda.time.DateTime;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
-import static android.R.attr.start;
+import org.joda.time.Period;
 
 /**
  * An event is a scheduled timeframe during which the user cannot do anything else. Examples include
@@ -15,7 +11,7 @@ import static android.R.attr.start;
  * Created by mwwie on 2016-11-19.
  */
 
-public class Event
+public class Event implements Comparable<Event>
 {
     public String getName() {
         return name;
@@ -84,9 +80,32 @@ public class Event
     }
 
     /**
+     * In order of priority:
+     * Earliest start
+     * Earliest end
+     * Alphabetical name
+     * Bro why you got two of the same event that's not cool
+     * @param e the event to compare to
+     * @return negative if this comes before e, positive if after, 0 if equal
+     */
+    public int compareTo(Event e)
+    {
+        long diff = this.startTime.getMillis() - e.startTime.getMillis();
+        if(diff != 0) { return (diff > 0 ? 1 : -1); }
+        diff = this.endTime.getMillis() - e.endTime.getMillis();
+        if(diff != 0) { return (diff > 0 ? 1 : -1); }
+        return this.name.compareTo(e.name);
+    }
+
+    public boolean equals(Object o)
+    {
+        return o instanceof Event && compareTo((Event)o) == 0;
+    }
+
+    /**
      * @return the duration of this event in milliseconds
      *
      */
     //TODO Fix duration time to include more than just hour
-    public long duration() { return endTime.getHourOfDay() - startTime.getHourOfDay(); }
+    public Period duration() { return new Period(startTime, endTime); }
 }

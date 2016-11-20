@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         DateTime finalTime = new DateTime(2016, 12, 24, 13, 20);
 
         // initialize tasks
+
         Task task1 = new Task("09Math Homework", startTime, endTime.plus(9), new Duration(1));
         Task task2 = new Task("05Chem Homework", startTime, endTime.plus(5), new Duration(1));
         Task task3 = new Task("-1Run Errands", startTime, endTime.plus(-1), new Duration(1));
