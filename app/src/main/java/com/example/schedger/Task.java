@@ -82,10 +82,14 @@ public class Task implements Comparable<Task> {
         return completed;
     }
 
-    public String getDay()
+    public int getDay()
     {
-        return this.getDay();
+        return this.startTime.getDayOfWeek();
     }
+
+    public DateTime getStartTime() { return this.startTime; }
+
+    public DateTime getEndTime() { return this.endTime; }
 
     public DateTime getCurrent() { return new DateTime(); }
 
