@@ -1,7 +1,12 @@
 package com.example.schedger;
 
 import org.joda.time.DateTime;
+import org.joda.time.Days;
 import org.joda.time.Period;
+import org.joda.time.format.DateTimeFormatter;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.LocalDate;
+import org.joda.time.format.ISODateTimeFormat;
 
 /**
  * An event is a scheduled timeframe during which the user cannot do anything else. Examples include
@@ -106,13 +111,66 @@ public class Event implements Comparable<Event>
     }
 
     /**
-     * @return the duration of this event in milliseconds
-     *
+     * @return the period during which this takes place
      */
+<<<<<<< HEAD
     //TODO Fix duration time to include more than just hour
     public Period duration() {
         Period period = new Period(startTime, endTime);
         period.toStandardDuration();
         return period;
+=======
+    public Period duration() { return new Period(startTime, endTime); }
+
+    /**
+     *
+     * @return
+     */
+    public String display()
+    {
+        String s = getName() + "\n"; // display name
+
+        //display time
+        DateTimeFormatter format = ISODateTimeFormat.dateHourMinute();
+        s += getStart().toString(format) + " - " + getEnd().toString(format);
+        /*
+        Period duration = duration();
+        DateTimeFormatter format;
+        LocalDate today = DateTime.now().toLocalDate();
+        // if within one week
+        if(Days.daysBetween(DateTime.now(), getStart()).getDays() < 7) {
+            // if starts today, omit indication of start date
+            s += getStart().toLocalDate().equals(today)
+                    ? "" : getStart().toString(DateTimeFormat.forPattern("E, HH:mm")) + " - ";
+
+            // ends on same day, just show end time
+            if (getStart().toLocalDate().equals(getEnd().toLocalDate())) {
+                s += getEnd().toString(DateTimeFormat.forPattern("HH:mm"));
+            }
+            // Event starts and ends on different days within seven days of each other
+            // "Tue, 11:00 - Wed, 15:00"
+            // "11:00 - Thu, 13:00"
+            else if (Days.daysBetween(getStart(), getEnd()).getDays() < 7) {
+                s += getEnd().toString(DateTimeFormat.forPattern("E, HH:mm"));
+            }
+            // Event ends more than seven days after it starts
+            // "Tue, 16:00 - 2017 Nov 24, 04:30"
+            // "16:00 - Dec 12, 13:00"
+            else {
+                int endYear = getEnd().getYear();
+                s += (endYear == getStart().getYear()) ? "" : endYear + " " +
+                        getEnd().toString(DateTimeFormat.forPattern("MM dd, HH:mm"));
+            }
+        } // end within one week
+        else if(getStart().)
+        {
+
+            if (getStart().toLocalDate().equals(getEnd().toLocalDate())) {
+                s += getEnd().toString(DateTimeFormat.forPattern("HH:mm"));
+            }
+        }
+        */
+        return s;
+>>>>>>> e24ebce8942b114c8e25e5ad3c1ac6482f9253a9
     }
 }

@@ -1,6 +1,7 @@
 package com.example.schedger;
 
 import org.joda.time.DateTime;
+import org.joda.time.Period;
 
 import java.util.ArrayList;
 /**
@@ -17,8 +18,26 @@ import java.util.ArrayList;
 public class Planner {
     public static ArrayList<Task> tasks = new ArrayList<Task>();
     public static ArrayList<Event> events = new ArrayList<Event>();
-    // public static String path = getApplicationContext().getFilesDir()
+    private static boolean quietHoursAdded = false;
 
+    public static void populateQuietHours()
+    {
+        if(quietHoursAdded) { return; }
+        DateTime now = DateTime.now();
+        // 11pm
+        DateTime quietStart = new DateTime(now.getYear(),
+            now.getMonthOfYear(),
+            now.getDayOfMonth(),
+            23,
+            0);
+        Period quietHours = new Period(quietStart, quietStart.plusHours(8));
+        for(int i = 0; i < 7; i++)
+        {
+            new Event("Quiet Hours", quietStart, quietStart.plusHours(8), "", "", true);
+            quietStart = quietStart.plusDays(1);
+        }
+        quietHoursAdded = true;
+    }
 
     /**
      * Automatically inserts the task and maintains list sorting
