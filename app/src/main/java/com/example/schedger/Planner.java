@@ -47,7 +47,7 @@ public class Planner {
     }
 
     /**
-     * Automatically inserts the event and maintaints list sorting
+     * Automatically inserts the event and maintains list sorting
      * @param event
      */
     public static void AddEvent(Event event) {
