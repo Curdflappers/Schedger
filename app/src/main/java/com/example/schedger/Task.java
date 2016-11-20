@@ -87,6 +87,8 @@ public class Task implements Comparable<Task> {
         return this.startTime.getDayOfWeek();
     }
 
+    public DateTime getStartTime() { return this.startTime; }
+
     public DateTime getCurrent() { return new DateTime(); }
 
     public String getUrgency()
