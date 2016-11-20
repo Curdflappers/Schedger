@@ -33,6 +33,7 @@ public class TaskActivity extends AppCompatActivity {
             tasksList.addView(textView);
         }
 
+<<<<<<< HEAD
         LinearLayout layout = (LinearLayout) findViewById(R.id.tasksList);
         layout.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -40,6 +41,8 @@ public class TaskActivity extends AppCompatActivity {
             }
         });
 
+=======
+>>>>>>> d23ac00288e4d98b5bc051f48916ecf05ebe0430
         Button add = (Button) findViewById(R.id.addTask);
         add.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){

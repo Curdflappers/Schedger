@@ -73,7 +73,8 @@ public class NewTaskActivity extends AppCompatActivity{
                     return;
                 }
 
-                Duration duration = new Duration(Integer.parseInt(taskDurationEdit.getText().toString()));
+                Duration duration = new Duration(
+                        Integer.parseInt(taskDurationEdit.getText().toString())*1000*60);
 
                 Task newTask = new Task(taskNameEdit.getText().toString(), startDate,
                         endDate, duration);

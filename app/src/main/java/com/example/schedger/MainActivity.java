@@ -11,6 +11,9 @@ import net.danlew.android.joda.JodaTimeAndroid;
 import org.joda.time.DateTime;
 import org.joda.time.Period;
 import java.util.ArrayList;
+
+import static android.R.attr.id;
+import static com.example.schedger.R.id.Monday;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -68,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         eventsText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent events_intent = new Intent(MainActivity.this, SevenDayActivity.class);
+                Intent events_intent = new Intent(MainActivity.this, NewEvent.class);
                 startActivity(events_intent);
             }
         });
@@ -104,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
                     "\n" + Planner.tasks.get(i).getTimeLeft());
             textView1.setBackgroundResource(R.drawable.border);
             textView1.setPadding(10, 10, 10, 10);
+            textView1.setId(i + 10);
             String urgency = Planner.tasks.get(i).getUrgency();
             if (urgency.equals("red"))
                 textView1.setBackgroundResource(R.color.red);
@@ -121,10 +125,12 @@ public class MainActivity extends AppCompatActivity {
     private void displayEvents() {
     // Display events in right hand side of home screen (scrollable)
     for( int i = 0; i < Planner.events.size(); i++ ) {
-        TextView textView = new TextView(this);
-        textView.setText(Planner.events.get(i).display());
-        textView.setBackgroundResource(R.color.blue);
-        ((LinearLayout)findViewById(R.id.events)).addView(textView);
+        if (!(Planner.events.get(i).getName().equals("Quiet Hours"))) {
+            TextView textView = new TextView(this);
+            textView.setText(Planner.events.get(i).display());
+            textView.setBackgroundResource(R.color.blue);
+            ((LinearLayout) findViewById(R.id.events)).addView(textView);
+        }
         }
     }
 
@@ -141,7 +147,6 @@ public class MainActivity extends AppCompatActivity {
             // if spacer is needed, add spacer
             if (temp.getStart().getHourOfDay() - time > 0) {
                 TextView spacerText = new TextView(this);
-                spacerText.setText("Look at me!");
                 spacerText.setLayoutParams(new LinearLayout.LayoutParams
                         (LinearLayout.LayoutParams.WRAP_CONTENT,
                                 0, temp.getStart().getHourOfDay() - time));
