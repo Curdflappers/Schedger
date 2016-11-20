@@ -35,7 +35,7 @@ public class Task implements Comparable<Task> {
     public int compareTo(Task other)
     {
         long diff = this.endTime.getMillis() - other.endTime.getMillis();
-        if(diff != 0) { return (int)diff; }
+        if(diff != 0) { return diff > 0 ? 1 : -1; }
 
         return 0;
     }
@@ -110,10 +110,11 @@ public class Task implements Comparable<Task> {
 
     public String getTimeLeft()
     {
-        int months, weeks, days, hours, minutes;
+        int years, months, weeks, days, hours, minutes;
         String timeLeft;
         DateTime current = getCurrent();
         Period period = new Period(current, endTime);
+        years = period.getYears();
         months = period.getMonths();
         weeks = period.getWeeks();
         days = period.getDays();
@@ -125,29 +126,34 @@ public class Task implements Comparable<Task> {
         // how many time intervals have been recorded
         int detailsAdded = 0;
 
-        if (months > 0) {
-            timeLeft += " " + months + " month" + (months > 1 ? "s" : "");
+        if(years > 0) {
+            timeLeft += " " + years + " year" + (years > 1 ? "s" : "");
             detailsAdded++;
         }
-        if (weeks > 0) {
-            timeLeft += (detailsAdded > 0 ? ", " : " ") + weeks + " week" + (weeks > 1 ? "s" : "");
+        if (months > 0) {
+            timeLeft += (detailsAdded == 1 ? ", " : " ") + months + " month" + (months > 1 ? "s" : "");
+            detailsAdded++;
+        }
+        if (detailsAdded < 2 && weeks > 0) {
+            timeLeft += (detailsAdded == 1 ? ", " : " ") + weeks + " week" + (weeks > 1 ? "s" : "");
             detailsAdded++;
         }
         if (detailsAdded < 2 && days > 0) {
-            timeLeft += (detailsAdded > 0 ? ", " : " ") + days + " day" + (days > 1 ? "s" : "");
+            timeLeft += (detailsAdded == 1 ? ", " : " ") + days + " day" + (days > 1 ? "s" : "");
             detailsAdded++;
         }
         if (detailsAdded < 2 && hours > 0) {
-            timeLeft += (detailsAdded > 0 ? ", " : " ") + hours + " hour" + (hours > 1 ? "s" : "");
+            timeLeft += (detailsAdded == 1 ? ", " : " ") + hours + " hour" + (hours > 1 ? "s" : "");
             detailsAdded++;
         }
         if (detailsAdded < 2 && minutes > 0) {
-            timeLeft += (detailsAdded > 0 ? ", " : " ") + minutes + " minute" +
+            timeLeft += (detailsAdded == 1 ? ", " : " ") + minutes + " minute" +
                     (minutes > 1 ? "s" : "");
         }
 
         return timeLeft;
     }
+
     @Override
     public String toString(){
         return getName() + "\n" + getDuration() + "\n" + getTimeLeft() + "\n";

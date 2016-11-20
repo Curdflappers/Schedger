@@ -44,14 +44,14 @@ public class MainActivity extends AppCompatActivity {
         DateTime finalTime = new DateTime(2016, 12, 24, 13, 20);
 
         // initialize tasks
-        Task task1 = new Task("09Math Homework", startTime, endTime.plus(9), new Duration(1));
-        Task task2 = new Task("05Chem Homework", startTime, endTime.plus(5), new Duration(1));
-        Task task3 = new Task("-1Run Errands", startTime, endTime.plus(-1), new Duration(1));
-        Task task4 = new Task("12Buy Groceries", startTime, endTime.plus(12), new Duration(1));
-        Task task5 = new Task("French Homework", startTime, endTime, new Duration(1));
-        Task task6 = new Task("Comp Sci Project", startTime, endTime, new Duration(1));
-        Task task7 = new Task("Comp Sci Exam (Study)", startTime, endTime, new Duration(1));
-        Task task8 = new Task("French Exam (Study)", startTime, endTime, new Duration(1));
+        Task task1 = new Task("Math Homework", startTime, endTime.plusDays(9), new Duration(1));
+        Task task2 = new Task("Chem Homework", startTime, endTime.plusHours(5), new Duration(1));
+        Task task3 = new Task("Run Errands", startTime, endTime.plusWeeks(-1), new Duration(1));
+        Task task4 = new Task("Buy Groceries", startTime, endTime.plusMonths(12), new Duration(1));
+        Task task5 = new Task("French Homework", startTime, endTime.plusYears(3), new Duration(1));
+        Task task6 = new Task("Comp Sci Project", startTime, endTime.plusMinutes(8), new Duration(1));
+        Task task7 = new Task("Comp Sci Exam (Study)", startTime, endTime.plusSeconds(15), new Duration(1));
+        Task task8 = new Task("French Exam (Study)", startTime, endTime.plusWeeks(7), new Duration(1));
 
         for( int i = 0; i < Planner.tasks.size(); i++ )
         {
