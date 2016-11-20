@@ -48,7 +48,7 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:id="@+id/taskStartLayout">
 
@@ -58,19 +58,62 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/taskStartText" />
 
-                <EditText
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="date"
-                    android:ems="10"
-                    android:id="@+id/taskStartEdit"
-                    android:text="Start DateTime" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <EditText
+                        android:layout_width="0px"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/taskStartMonthEdit"
+                        android:text="MM" />
+                    <EditText
+                        android:layout_width="0px"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/taskStartDayEdit"
+                        android:text="DD" />
+                    <EditText
+                        android:layout_width="0px"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/taskStartYearEdit"
+                        android:text="YYYY" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <EditText
+                        android:layout_width="0px"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/taskStartMinuteEdit"
+                        android:text="Min" />
+                    <EditText
+                        android:layout_width="0px"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/taskStartHourEdit"
+                        android:text="Hour" />
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:id="@+id/endLayout">
 
@@ -80,14 +123,56 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/taskEndText" />
-
-                <EditText
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="date"
-                    android:ems="10"
-                    android:id="@+id/taskEndEdit"
-                    android:text="End DateTime" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <EditText
+                        android:layout_width="0px"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/taskEndMonthEdit"
+                        android:text="MM" />
+                    <EditText
+                        android:layout_width="0px"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/taskEndDayEdit"
+                        android:text="DD" />
+                    <EditText
+                        android:layout_width="0px"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/taskEndYearEdit"
+                        android:text="YYYY" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <EditText
+                        android:layout_width="0px"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/taskEndMinuteEdit"
+                        android:text="Min" />
+                    <EditText
+                        android:layout_width="0px"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/taskEndHourEdit"
+                        android:text="Hour" />
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -127,4 +212,5 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="45dp"
         android:onClick="saveTask" />
+
 </RelativeLayout>
