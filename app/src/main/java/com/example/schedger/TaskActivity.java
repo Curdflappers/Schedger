@@ -9,10 +9,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 16eeeebc8fcd72a7e5d07b8ad34c89e99a5e6ab3
 public class TaskActivity extends AppCompatActivity {
 
     @Override
