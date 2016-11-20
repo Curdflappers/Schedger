@@ -16,6 +16,9 @@ import static android.R.attr.id;
 import static com.example.schedger.R.id.Monday;
 import java.util.List;
 
+import java.io.File;
+import java.io.FileOutputStream;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -29,8 +32,6 @@ public class MainActivity extends AppCompatActivity {
         displayTasks();
         displayEvents();
         displaySevenDay();
-
-
     }
 
     /**
