@@ -15,6 +15,9 @@ import org.joda.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.io.File;
+import java.io.FileOutputStream;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -28,8 +31,6 @@ public class MainActivity extends AppCompatActivity {
         displayTasks();
         displayEvents();
         displaySevenDay();
-
-
     }
 
     /**
