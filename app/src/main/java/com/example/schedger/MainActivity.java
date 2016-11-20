@@ -4,22 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Button;
 
 import net.danlew.android.joda.JodaTimeAndroid;
 
-<<<<<<< HEAD
-=======
-import org.joda.time.DateTime;
-import org.joda.time.Duration;
-
 import java.util.ArrayList;
 
-import static com.example.schedger.R.id.Monday;
-
->>>>>>> fecf34919791e97087c71ac6f3da24360928fa30
 public class MainActivity extends AppCompatActivity {
 
     @Override

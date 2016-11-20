@@ -1,12 +1,8 @@
 package com.example.schedger;
 
-import android.content.Context;
-
-import java.util.ArrayList;
-
 import org.joda.time.DateTime;
 
-import java.io.File;
+import java.util.ArrayList;
 /**
  * Program tracks various information to help college students and presents it back to them in an
  * organized, easy to read app. Information includes: tasks, which will be listed from top to
@@ -46,6 +42,10 @@ public class Planner {
         tasks.add(start, task);
     }
 
+    public static void removeTask(Task task){
+        task = null;
+    }
+
     /**
      * Automatically inserts the event and maintains list sorting
      * @param event
@@ -65,6 +65,10 @@ public class Planner {
             else { start = middle + 1;}
         }
         events.add(start, event);
+    }
+
+    public static void removeEvent(Event event){
+        event = null;
     }
 
     public static void GenerateSchedule()
@@ -94,8 +98,21 @@ public class Planner {
         } // end looping through all tasks
     }
 
+    //Makes files for the user, stores their task and event arrays as strings
     public static void Save()
     {
+        ArrayList<String> data = new ArrayList<String>();
+        for(int i = 0; i < tasks.size(); i++){
+            data.add(tasks.get(i).toString());
+        }
+        //Used to separate tasks and events
+        data.add(" ");
+        for (int i = 0; i < events.size(); i++){
+            data.add(events.get(i).toString());
+        }
 
+        for (int i = 0; i < data.size(); i++){
+            
+        }
     }
 }
