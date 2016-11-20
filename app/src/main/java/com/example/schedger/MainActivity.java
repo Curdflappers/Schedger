@@ -126,7 +126,6 @@ public class MainActivity extends AppCompatActivity {
             // if spacer is needed, add spacer
             if (temp.getStart().getHourOfDay() - time > 0) {
                 TextView spacerText = new TextView(this);
-                spacerText.setText("Look at me!");
                 spacerText.setLayoutParams(new LinearLayout.LayoutParams
                         (LinearLayout.LayoutParams.WRAP_CONTENT,
                                 0, temp.getStart().getHourOfDay() - time));
