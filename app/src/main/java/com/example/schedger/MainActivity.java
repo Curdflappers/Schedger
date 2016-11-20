@@ -106,10 +106,12 @@ public class MainActivity extends AppCompatActivity {
     private void displayEvents() {
     // Display events in right hand side of home screen (scrollable)
     for( int i = 0; i < Planner.events.size(); i++ ) {
-        TextView textView = new TextView(this);
-        textView.setText(Planner.events.get(i).display());
-        textView.setBackgroundResource(R.color.blue);
-        ((LinearLayout)findViewById(R.id.events)).addView(textView);
+        if (!(Planner.events.get(i).getName().equals("Quiet Hours"))) {
+            TextView textView = new TextView(this);
+            textView.setText(Planner.events.get(i).display());
+            textView.setBackgroundResource(R.color.blue);
+            ((LinearLayout) findViewById(R.id.events)).addView(textView);
+        }
         }
     }
 
