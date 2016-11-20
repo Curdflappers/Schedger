@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Schedger</string>
     <string name="bn">Submit</string>
+    <string name="add">+</string>
+    <string name="currentTasks">Current Tasks</string>
 </resources>

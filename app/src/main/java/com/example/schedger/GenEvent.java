@@ -1,7 +1,5 @@
 package com.example.schedger;
 
-import org.joda.time.DateTime;
-
 /**
  * Created by mwwie on 2016-11-19.
  */
