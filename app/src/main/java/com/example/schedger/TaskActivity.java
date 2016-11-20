@@ -37,10 +37,6 @@ public class TaskActivity extends AppCompatActivity {
             tasksList.addView(textView);
         }
 
-        
-
-
-
         Button add = (Button) findViewById(R.id.addTask);
 
         add.setOnClickListener(new View.OnClickListener(){
