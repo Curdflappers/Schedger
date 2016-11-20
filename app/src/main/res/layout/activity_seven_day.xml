@@ -196,8 +196,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:id="@+id/Sunday"
-            android:layout_weight="1"
-            android:background="@color/blue">
+            android:layout_weight="1">
 
         </LinearLayout>
         <LinearLayout
@@ -213,8 +212,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:id="@+id/Tuesday"
-            android:layout_weight="1"
-            android:background="@color/blue">
+            android:layout_weight="1">
 
         </LinearLayout>
         <LinearLayout
@@ -230,8 +228,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:id="@+id/Thursday"
-            android:layout_weight="1"
-            android:background="@color/blue">
+            android:layout_weight="1">
 
         </LinearLayout>
         <LinearLayout
@@ -247,8 +244,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:id="@+id/Saturday"
-            android:layout_weight="1"
-            android:background="@color/blue">
+            android:layout_weight="1">
 
         </LinearLayout>
     </LinearLayout>
