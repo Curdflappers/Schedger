@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         JodaTimeAndroid.init(this);
         setContentView(R.layout.activity_main);
 
+        Planner.populateQuietHours();
         createButtonBindings();
         displayTasks();
         displayEvents();
@@ -102,8 +103,7 @@ public class MainActivity extends AppCompatActivity {
     // Display events in right hand side of home screen (scrollable)
     for( int i = 0; i < Planner.events.size(); i++ ) {
         TextView textView = new TextView(this);
-        textView.setText(Planner.events.get(i).getName() +
-                Planner.events.get(i).getComments() + '\n'); //Need to add duration once its finished
+        textView.setText(Planner.events.get(i).display());
         textView.setBackgroundResource(R.color.blue);
         ((LinearLayout)findViewById(R.id.events)).addView(textView);
         }
