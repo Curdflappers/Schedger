@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         eventsText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent events_intent = new Intent(MainActivity.this,Events.class);
+                Intent events_intent = new Intent(MainActivity.this,SevenDayActivity.class);
                 startActivity(events_intent );
             }
         });
