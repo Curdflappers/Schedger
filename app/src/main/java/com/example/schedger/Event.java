@@ -1,11 +1,8 @@
 package com.example.schedger;
 
 import org.joda.time.DateTime;
-import org.joda.time.Days;
 import org.joda.time.Period;
 import org.joda.time.format.DateTimeFormatter;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.LocalDate;
 import org.joda.time.format.ISODateTimeFormat;
 
 /**
@@ -113,14 +110,12 @@ public class Event implements Comparable<Event>
     /**
      * @return the period during which this takes place
      */
-<<<<<<< HEAD
     //TODO Fix duration time to include more than just hour
     public Period duration() {
         Period period = new Period(startTime, endTime);
         period.toStandardDuration();
         return period;
-=======
-    public Period duration() { return new Period(startTime, endTime); }
+    }
 
     /**
      *
@@ -133,6 +128,8 @@ public class Event implements Comparable<Event>
         //display time
         DateTimeFormatter format = ISODateTimeFormat.dateHourMinute();
         s += getStart().toString(format) + " - " + getEnd().toString(format);
+        return s;
+    }
         /*
         Period duration = duration();
         DateTimeFormatter format;
@@ -170,7 +167,4 @@ public class Event implements Comparable<Event>
             }
         }
         */
-        return s;
->>>>>>> e24ebce8942b114c8e25e5ad3c1ac6482f9253a9
-    }
 }

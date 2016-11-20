@@ -29,6 +29,14 @@ public class Events extends AppCompatActivity {
             textView.setBackgroundResource(event instanceof GenEvent ? R.color.blue : R.color.lightGray);
             eventsList.addView(textView);
         }
+
+        LinearLayout layout = (LinearLayout) findViewById(R.id.eventsList);
+        layout.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                startActivity(new Intent(Events.this, NewEvent.class));
+            }
+        });
+
         Button add = (Button) findViewById(R.id.addEvent);
 
         add.setOnClickListener(new View.OnClickListener(){

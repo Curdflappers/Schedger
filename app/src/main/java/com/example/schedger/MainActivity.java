@@ -4,24 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-<<<<<<< HEAD
 import android.widget.Button;
-=======
->>>>>>> e24ebce8942b114c8e25e5ad3c1ac6482f9253a9
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import net.danlew.android.joda.JodaTimeAndroid;
-
-<<<<<<< HEAD
-import java.util.ArrayList;
-=======
 import org.joda.time.DateTime;
 import org.joda.time.Period;
-
 import java.util.ArrayList;
 import java.util.List;
->>>>>>> e24ebce8942b114c8e25e5ad3c1ac6482f9253a9
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,6 +34,27 @@ public class MainActivity extends AppCompatActivity {
      * Creates binding for navigation buttons
      */
     private void createButtonBindings() {
+
+        LinearLayout layoutTask = (LinearLayout) findViewById(R.id.tasks);
+//        TextView moreTasks = (TextView) findViewById(R.id.seeMoreTasks);
+        layoutTask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent see_tasks = new Intent(MainActivity.this, TaskActivity.class);
+                startActivity(see_tasks);
+            }
+        });
+
+        LinearLayout layoutEvent = (LinearLayout) findViewById(R.id.events);
+//        TextView moreEvents = (TextView) findViewById(R.id.seeMoreEvents);
+        layoutEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent see_events = new Intent(MainActivity.this, Events.class);
+                startActivity(see_events);
+            }
+        });
+
         TextView tasksText = (TextView) findViewById(R.id.tasksText);
         tasksText.setOnClickListener(new View.OnClickListener() {
             @Override

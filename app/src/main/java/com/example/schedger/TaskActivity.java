@@ -33,12 +33,14 @@ public class TaskActivity extends AppCompatActivity {
             tasksList.addView(textView);
         }
 
-        
-
-
+        LinearLayout layout = (LinearLayout) findViewById(R.id.tasksList);
+        layout.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                startActivity(new Intent(TaskActivity.this, NewTaskActivity.class));
+            }
+        });
 
         Button add = (Button) findViewById(R.id.addTask);
-
         add.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 startActivity(new Intent(TaskActivity.this, NewTaskActivity.class));
