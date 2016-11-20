@@ -18,7 +18,7 @@ import org.joda.time.format.DateTimeFormat;
 
 import java.util.Date;
 
-public class NewTaskActivity extends AppCompatActivity {
+public class NewTaskActivity extends AppCompatActivity{
     public static EditText taskNameEdit;
 
     @Override
