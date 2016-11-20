@@ -92,8 +92,7 @@ public class MainActivity extends AppCompatActivity {
             monday.addView(textView);
         }
 
-        //Displays add task/event buttons when there are currently none
-
+        //Displays add task/event buttons when there are none
         Button showAddEvents = (Button) this.findViewById(R.id.addEventWhenNoEvents);
         if(Planner.events.size() == 0){
             showAddEvents.setVisibility(View.VISIBLE);
