@@ -4,8 +4,6 @@ import org.joda.time.DateTime;
 import org.joda.time.Duration;
 import org.joda.time.Period;
 
-import com.example.schedger.GenEvent;
-
 /**
  * Created by Payton on 11/19/2016.
  */

@@ -13,7 +13,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0px"
@@ -35,13 +38,13 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="175dp"
                 android:layout_height="match_parent"
                 android:text="Tasks"
                 android:gravity="center"
                 android:textSize="20sp"
-                android:layout_weight="1"
                 android:id="@+id/tasksText"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -56,15 +59,18 @@
             android:layout_height="0px"
             android:orientation="vertical"
             android:layout_weight="6">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0px"
                 android:layout_weight="7"
                 android:orientation="horizontal">
+
                 <ScrollView
                     android:layout_width="0px"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:elevation="0dp">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -72,6 +78,13 @@
                         android:id="@+id/tasks"
                         android:orientation="vertical">
 
+                        <Button
+                            android:text="+"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/addTaskWhenNoTasks"
+                            android:background="@drawable/roundedbuttonadd"
+                            android:layout_width="162dp"
+                            android:elevation="10dp" />
                     </LinearLayout>
                 </ScrollView>
 
@@ -86,10 +99,19 @@
                         android:id="@+id/events"
                         android:orientation="vertical"
                         android:paddingLeft="16dp">
+
+                        <Button
+                            android:text="+"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/addEventWhenNoEvents"
+                            android:background="@drawable/roundedbuttonadd"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent" />
                     </LinearLayout>
                 </ScrollView>
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0px"
@@ -114,6 +136,7 @@
                         android:id="@+id/seeMoreEvents"/>
             </LinearLayout>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0px"

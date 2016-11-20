@@ -4,16 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Button;
 
 import net.danlew.android.joda.JodaTimeAndroid;
-
-import org.joda.time.DateTime;
-import org.joda.time.Duration;
-
-import static com.example.schedger.R.id.Monday;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -95,6 +90,32 @@ public class MainActivity extends AppCompatActivity {
             textView.setHeight(30);
             textView.setBackgroundResource(R.color.red);
             monday.addView(textView);
+        }
+
+        //Displays add task/event buttons when there are currently none
+
+        Button showAddEvents = (Button) this.findViewById(R.id.addEventWhenNoEvents);
+        if(Planner.events.size() == 0){
+            showAddEvents.setVisibility(View.VISIBLE);
+            showAddEvents.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View v){
+                    startActivity(new Intent(MainActivity.this, NewEvent.class));
+                }
+            });
+        }else {
+            showAddEvents.setVisibility(View.GONE);
+        }
+
+        Button showAddTasks = (Button) this.findViewById(R.id.addTaskWhenNoTasks);
+        if(Planner.tasks.size() == 0){
+            showAddTasks.setVisibility(View.VISIBLE);
+            showAddTasks.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View v){
+                    startActivity(new Intent(MainActivity.this, NewTaskActivity.class));
+                }
+            });
+        }else{
+            showAddTasks.setVisibility(View.GONE);
         }
     }
 }
