@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import org.joda.time.DateTime;
 import org.joda.time.Duration;
@@ -29,6 +30,9 @@ public class NewTaskActivity extends AppCompatActivity {
         populateDefaultValues();
     }
 
+    /**
+     * Adds the functionality of the save button
+     */
     void createSaveButtonListener()
     {
         ImageButton saveTaskButton = (ImageButton)findViewById(R.id.saveTaskButton);
@@ -60,6 +64,15 @@ public class NewTaskActivity extends AppCompatActivity {
                         Integer.parseInt(taskEndDayEdit.getText().toString()),
                         Integer.parseInt(taskEndHourEdit.getText().toString()),
                         Integer.parseInt(taskEndMinuteEdit.getText().toString()));
+
+                boolean shouldBreak = false;
+                if(endDate.isBeforeNow() || endDate.isBefore(startDate))
+                {
+                    ((TextView)findViewById(R.id.dialogText)).setText("Invalid end time." +
+                            " End time must be after current time and start time.");
+                    return;
+                }
+
                 Duration duration = new Duration(Integer.parseInt(taskDurationEdit.getText().toString()));
 
                 Task newTask = new Task(taskNameEdit.getText().toString(), startDate,
@@ -70,6 +83,9 @@ public class NewTaskActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Sets the navigation flow for the activity
+     */
     void setDateTimePickerOrdering()
     {
         View[] order = {findViewById(R.id.taskNameEdit),
