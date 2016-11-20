@@ -15,6 +15,7 @@ import org.joda.time.Duration;
 
 import java.util.ArrayList;
 
+import static android.R.attr.id;
 import static com.example.schedger.R.id.Monday;
 
 public class MainActivity extends AppCompatActivity {
@@ -70,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
             textView1.setText(Planner.tasks.get(i).getName() + "\n" + Planner.tasks.get(i).getTimeLeft());
             textView1.setBackgroundResource(R.drawable.border);
             textView1.setPadding(10, 10, 10, 10);
+            textView1.setId(i + 10);
             String urgency = Planner.tasks.get(i).getUrgency();
             if (urgency.equals("red"))
                 textView1.setBackgroundResource(R.color.red);
