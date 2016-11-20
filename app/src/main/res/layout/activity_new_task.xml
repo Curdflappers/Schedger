@@ -35,7 +35,8 @@
                 android:inputType="textPersonName"
                 android:text="Name"
                 android:ems="10"
-                android:id="@+id/taskNameEdit" />
+                android:id="@+id/taskNameEdit"
+                android:selectAllOnFocus="true" />
 
         </LinearLayout>
 
@@ -69,7 +70,8 @@
                         android:inputType="number"
                         android:ems="10"
                         android:id="@+id/taskStartMonthEdit"
-                        android:text="MM" />
+                        android:text="MM"
+                        android:selectAllOnFocus="true" />
                     <EditText
                         android:layout_width="0px"
                         android:layout_height="wrap_content"
@@ -77,7 +79,8 @@
                         android:inputType="number"
                         android:ems="10"
                         android:id="@+id/taskStartDayEdit"
-                        android:text="DD" />
+                        android:text="DD"
+                        android:selectAllOnFocus="true" />
                     <EditText
                         android:layout_width="0px"
                         android:layout_height="wrap_content"
@@ -85,20 +88,14 @@
                         android:inputType="number"
                         android:ems="10"
                         android:id="@+id/taskStartYearEdit"
-                        android:text="YYYY" />
+                        android:text="YYYY"
+                        android:selectAllOnFocus="true" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
-                    <EditText
-                        android:layout_width="0px"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:inputType="number"
-                        android:ems="10"
-                        android:id="@+id/taskStartMinuteEdit"
-                        android:text="Min" />
+
                     <EditText
                         android:layout_width="0px"
                         android:layout_height="wrap_content"
@@ -106,7 +103,18 @@
                         android:inputType="number"
                         android:ems="10"
                         android:id="@+id/taskStartHourEdit"
-                        android:text="Hour" />
+                        android:text="Hour"
+                        android:selectAllOnFocus="true" />
+
+                    <EditText
+                        android:layout_width="0px"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/taskStartMinuteEdit"
+                        android:text="Min"
+                        android:selectAllOnFocus="true" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -134,7 +142,8 @@
                         android:inputType="number"
                         android:ems="10"
                         android:id="@+id/taskEndMonthEdit"
-                        android:text="MM" />
+                        android:text="MM"
+                        android:selectAllOnFocus="true" />
                     <EditText
                         android:layout_width="0px"
                         android:layout_height="wrap_content"
@@ -142,7 +151,8 @@
                         android:inputType="number"
                         android:ems="10"
                         android:id="@+id/taskEndDayEdit"
-                        android:text="DD" />
+                        android:text="DD"
+                        android:selectAllOnFocus="true" />
                     <EditText
                         android:layout_width="0px"
                         android:layout_height="wrap_content"
@@ -150,20 +160,14 @@
                         android:inputType="number"
                         android:ems="10"
                         android:id="@+id/taskEndYearEdit"
-                        android:text="YYYY" />
+                        android:text="YYYY"
+                        android:selectAllOnFocus="true" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
-                    <EditText
-                        android:layout_width="0px"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:inputType="number"
-                        android:ems="10"
-                        android:id="@+id/taskEndMinuteEdit"
-                        android:text="Min" />
+
                     <EditText
                         android:layout_width="0px"
                         android:layout_height="wrap_content"
@@ -171,7 +175,18 @@
                         android:inputType="number"
                         android:ems="10"
                         android:id="@+id/taskEndHourEdit"
-                        android:text="Hour" />
+                        android:text="Hour"
+                        android:selectAllOnFocus="true" />
+
+                    <EditText
+                        android:layout_width="0px"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/taskEndMinuteEdit"
+                        android:text="Min"
+                        android:selectAllOnFocus="true" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -196,7 +211,8 @@
                 android:inputType="number"
                 android:ems="10"
                 android:id="@+id/taskDurationEdit"
-                android:text="[Time] minutes" />
+                android:text="[Time] minutes"
+                android:selectAllOnFocus="true" />
 
         </LinearLayout>
 

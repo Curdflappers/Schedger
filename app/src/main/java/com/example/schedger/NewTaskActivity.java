@@ -23,7 +23,12 @@ public class NewTaskActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_task);
+        createSaveButtonListener();
+        setDateTimePickerOrdering();
+    }
 
+    void createSaveButtonListener()
+    {
         ImageButton saveTaskButton = (ImageButton)findViewById(R.id.saveTaskButton);
         saveTaskButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,10 +62,30 @@ public class NewTaskActivity extends AppCompatActivity {
 
                 Task newTask = new Task(taskNameEdit.getText().toString(), startDate,
                         endDate, duration);
-                Intent tasks_intent = new Intent(NewTaskActivity.this,MainActivity.class);
-                startActivity(tasks_intent );
+                Intent tasks_intent = new Intent(NewTaskActivity.this, MainActivity.class);
+                startActivity(tasks_intent);
             }
         });
+    }
+
+    void setDateTimePickerOrdering()
+    {
+        View[] order = {findViewById(R.id.taskNameEdit),
+        findViewById(R.id.taskStartMonthEdit),
+        findViewById(R.id.taskStartDayEdit),
+        findViewById(R.id.taskStartYearEdit),
+        findViewById(R.id.taskStartHourEdit),
+        findViewById(R.id.taskStartMinuteEdit),
+        findViewById(R.id.taskEndMonthEdit),
+        findViewById(R.id.taskEndDayEdit),
+        findViewById(R.id.taskEndYearEdit),
+        findViewById(R.id.taskEndHourEdit),
+        findViewById(R.id.taskEndMinuteEdit),
+        findViewById(R.id.taskDurationEdit)};
+        for(int i = 0; i < order.length - 1; i++)
+        {
+            order[i].setNextFocusDownId(order[i+1].getId());
+        }
     }
 
     static void saveTask(View v)
