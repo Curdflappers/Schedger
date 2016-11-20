@@ -42,8 +42,8 @@
     <Button
         android:background="@drawable/roundedbuttonadd"
         android:text="@string/add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:id="@+id/addEvent"
         tools:ignore="RelativeOverlap"
         android:elevation="1dp"
