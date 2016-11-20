@@ -4,6 +4,8 @@ import org.joda.time.DateTime;
 import org.joda.time.Duration;
 import org.joda.time.Period;
 
+import com.example.schedger.GenEvent;
+
 /**
  * Created by Payton on 11/19/2016.
  */
@@ -16,7 +18,8 @@ public class Task implements Comparable<Task> {
     private DateTime endTime;
     private Duration duration;
     private boolean completed;
-    private DateTime dt;
+
+    private GenEvent genEvent; // the gen event associated with this task
 
     public Task (String name, DateTime startTime, DateTime endTime, Duration duration)
     {
@@ -26,27 +29,32 @@ public class Task implements Comparable<Task> {
         this.duration = duration;
         this.completed = false;
         Planner.AddTask(this);
+
+        genEvent = null; // must be created through generate schedule method
     }
 
+    public GenEvent getGenEvent() { return genEvent; }
+    public void setGenEvent(GenEvent g) { genEvent = g; }
+
     /**
-     * Sort by: endTime, duration,
+     * Sort by: endTime, duration, name
+     * First endTime goes first
+     * Longer duration goes first
+     * First alphabetically goes first
      * @param other
      */
     public int compareTo(Task other)
     {
         long diff = this.endTime.getMillis() - other.endTime.getMillis();
         if(diff != 0) { return diff > 0 ? 1 : -1; }
-
-        return 0;
+        diff = this.duration.getMillis() - other.duration.getMillis();
+        if(diff != 0) { return diff > 0 ? 1 : -1; }
+        return name.compareTo(other.name);
     }
 
     public boolean equals(Object other)
     {
-        if(other instanceof Task)
-        {
-            return this.compareTo((Task)other) == 0;
-        }
-        return false;
+        return other instanceof Task && this.compareTo((Task)other) == 0;
     }
 
     public String getName()

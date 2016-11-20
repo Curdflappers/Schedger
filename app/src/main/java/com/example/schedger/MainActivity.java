@@ -45,34 +45,37 @@ public class MainActivity extends AppCompatActivity {
 
         // initialize tasks
 
-        Task task1 = new Task("09Math Homework", startTime, endTime.plus(9), new Duration(1));
-        Task task2 = new Task("05Chem Homework", startTime, endTime.plus(5), new Duration(1));
-        Task task3 = new Task("-1Run Errands", startTime, endTime.plus(-1), new Duration(1));
-        Task task4 = new Task("12Buy Groceries", startTime, endTime.plus(12), new Duration(1));
-        Task task5 = new Task("French Homework", startTime, endTime, new Duration(1));
-        Task task6 = new Task("Comp Sci Project", startTime, endTime, new Duration(1));
-        Task task7 = new Task("Comp Sci Exam (Study)", startTime, endTime, new Duration(1));
-        Task task8 = new Task("French Exam (Study)", startTime, endTime, new Duration(1));
-        Event event1 = new Event("Comp Sci Lecture", startTime, endTime,"comp sci buidling", "CS 367", false );
-        Event event2 = new Event("Comp Sci Lecture", startTime, endTime,"comp sci buidling", "CS 302", false );
-        Event event3 = new Event("Comp Sci Lecture", startTime, endTime,"comp sci buidling", "CS 354", false );
-        Event event4 = new Event("Comp Sci Lecture", startTime, endTime,"comp sci buidling", "CS 368", false );
+        new Task("09Math Homework", startTime, endTime.plus(9), new Duration(1));
+        new Task("05Chem Homework", startTime, endTime.plus(5), new Duration(1));
+        new Task("-1Run Errands", startTime, endTime.plus(-1), new Duration(1));
+        new Task("12Buy Groceries", startTime, endTime.plus(12), new Duration(1));
+        new Task("French Homework", startTime, endTime, new Duration(1));
+        new Task("Comp Sci Project", startTime, endTime, new Duration(1));
+        new Task("Comp Sci Exam (Study)", startTime, endTime, new Duration(1));
+        new Task("French Exam (Study)", startTime, endTime, new Duration(1));
+        new Event("Comp Sci Lecture", startTime, endTime,"comp sci buidling", "CS 367", false );
+        new Event("Comp Sci Lecture", startTime, endTime,"comp sci buidling", "CS 302", false );
+        new Event("Comp Sci Lecture", startTime, endTime,"comp sci buidling", "CS 354", false );
+        new Event("Comp Sci Lecture", startTime, endTime,"comp sci buidling", "CS 368", false );
 
+        // display tasks
         for( int i = 0; i < Planner.tasks.size(); i++ )
         {
             TextView textView1 = new TextView(this);
             textView1.setText(Planner.tasks.get(i).getName() + "\n" + Planner.tasks.get(i).getTimeLeft());
             textView1.setBackgroundResource(R.drawable.border);
             textView1.setPadding(10, 10, 10, 10);
-            if (Planner.tasks.get(i).getUrgency().equals("red"))
+            String urgency = Planner.tasks.get(i).getUrgency();
+            if (urgency.equals("red"))
                 textView1.setBackgroundResource(R.color.red);
-            else if (Planner.tasks.get(i).getUrgency().equals("yellow"))
+            else if (urgency.equals("yellow"))
                 textView1.setBackgroundResource(R.color.yellow);
-            else if (Planner.tasks.get(i).getUrgency().equals("green"))
+            else if (urgency.equals("green"))
                 textView1.setBackgroundResource(R.color.green);
             tasks.addView(textView1);
         }
 
+        // display events
         for( int i = 0; i < Planner.events.size(); i++ )
         {
             TextView textView = new TextView(this);
