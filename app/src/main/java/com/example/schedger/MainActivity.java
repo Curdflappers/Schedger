@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         JodaTimeAndroid.init(this);
         setContentView(R.layout.activity_main);
 
-        LinearLayout tasks = (LinearLayout )findViewById(R.id.tasks);
+        LinearLayout tasks = (LinearLayout)findViewById(R.id.tasks);
         tasks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        LinearLayout events = (LinearLayout )findViewById(R.id.events);
+        LinearLayout events = (LinearLayout)findViewById(R.id.events);
         events.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
         Task task6 = new Task("Comp Sci Project", startTime, endTime, new Duration(1));
         Task task7 = new Task("Comp Sci Exam (Study)", startTime, endTime, new Duration(1));
         Task task8 = new Task("French Exam (Study)", startTime, endTime, new Duration(1));
+        Event event1 = new Event("Comp Sci Lecture", startTime, endTime,"comp sci buidling", "CS 367", false );
+        Event event2 = new Event("Comp Sci Lecture", startTime, endTime,"comp sci buidling", "CS 302", false );
+        Event event3 = new Event("Comp Sci Lecture", startTime, endTime,"comp sci buidling", "CS 354", false );
+        Event event4 = new Event("Comp Sci Lecture", startTime, endTime,"comp sci buidling", "CS 368", false );
 
         for( int i = 0; i < Planner.tasks.size(); i++ )
         {
@@ -68,10 +72,10 @@ public class MainActivity extends AppCompatActivity {
             tasks.addView(textView1);
         }
 
-        for( int i = 0; i < Planner.tasks.size(); i++ )
+        for( int i = 0; i < Planner.events.size(); i++ )
         {
             TextView textView = new TextView(this);
-            textView.setText(Planner.tasks.get(i).getName());
+            textView.setText(Planner.events.get(i).getName());
             events.addView(textView);
         }
     }
