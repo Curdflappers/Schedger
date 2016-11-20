@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 
 import org.joda.time.DateTime;
 import org.joda.time.Duration;
+import org.joda.time.format.DateTimeFormat;
 
 import java.util.Date;
 
@@ -25,6 +26,7 @@ public class NewTaskActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_task);
         createSaveButtonListener();
         setDateTimePickerOrdering();
+        populateDefaultValues();
     }
 
     void createSaveButtonListener()
@@ -86,6 +88,30 @@ public class NewTaskActivity extends AppCompatActivity {
         {
             order[i].setNextFocusDownId(order[i+1].getId());
         }
+    }
+
+    /**
+     * Populates name as "New Task"
+     * Start dateTime as current Time
+     * End dateTime as current Time + 1 day
+     * Duration as 60 minutes
+     */
+    void populateDefaultValues()
+    {
+        DateTime current = new DateTime();
+        ((EditText)findViewById(R.id.taskNameEdit)).setText("New Task");
+        ((EditText)findViewById(R.id.taskStartMonthEdit)).setText("" + current.getMonthOfYear());
+        ((EditText)findViewById(R.id.taskStartDayEdit)).setText("" + current.getDayOfMonth());
+        ((EditText)findViewById(R.id.taskStartYearEdit)).setText("" + current.getYear());
+        ((EditText)findViewById(R.id.taskStartHourEdit)).setText("" + current.getHourOfDay());
+        ((EditText)findViewById(R.id.taskStartMinuteEdit)).setText("" + current.getMinuteOfHour());
+        DateTime end = current.plusDays(1);
+        ((EditText)findViewById(R.id.taskEndMonthEdit)).setText("" + end.getMonthOfYear());
+        ((EditText)findViewById(R.id.taskEndDayEdit)).setText("" + end.getDayOfMonth());
+        ((EditText)findViewById(R.id.taskEndYearEdit)).setText("" + end.getYear());
+        ((EditText)findViewById(R.id.taskEndHourEdit)).setText("" + end.getHourOfDay());
+        ((EditText)findViewById(R.id.taskEndMinuteEdit)).setText("" + end.getMinuteOfHour());
+        ((EditText)findViewById(R.id.taskDurationEdit)).setText("60");
     }
 
     static void saveTask(View v)

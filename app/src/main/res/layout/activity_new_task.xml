@@ -200,7 +200,7 @@
             android:id="@+id/taskDurationLayout">
 
             <TextView
-                android:text="Duration"
+                android:text="Duration (minutes)"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/taskDurationText" />
