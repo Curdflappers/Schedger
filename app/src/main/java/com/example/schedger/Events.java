@@ -14,7 +14,7 @@ public class Events extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events);
-
+// TODO : FIGURE HOW TO CLICK EACH INDIVIDUALLY
 
         LinearLayout eventsList = (LinearLayout )findViewById(R.id.eventsList);
 
@@ -23,9 +23,10 @@ public class Events extends AppCompatActivity {
         {
             TextView textView = new TextView(this);
             textView.setText(Planner.events.get(i).getName() + '\n'
-                    + Planner.events.get(i).getComments() + '\n');
+                    + Planner.events.get(i).getComments() + '\n'); //Need to add duration once its finished
             textView.setBackgroundResource(R.drawable.border);
             textView.setPadding(10, 10, 10, 10);
+            textView.setBackgroundResource(R.color.blue);
             eventsList.addView(textView);
         }
         Button add = (Button) findViewById(R.id.addEvent);

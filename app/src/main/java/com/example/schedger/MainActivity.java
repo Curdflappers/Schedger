@@ -82,8 +82,11 @@ public class MainActivity extends AppCompatActivity {
         for( int i = 0; i < Planner.events.size(); i++ )
         {
             TextView textView = new TextView(this);
-            textView.setText(Planner.events.get(i).getName());
+            textView.setText(Planner.events.get(i).getName() +
+                    Planner.events.get(i).getComments() + '\n'); //Need to add duration once its finished
+            textView.setBackgroundResource(R.color.blue);
             events.addView(textView);
+
         }
 
         // Display calendar in bottom of home screen
@@ -95,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
             textView.setHeight(30);
             textView.setBackgroundResource(R.color.red);
             monday.addView(textView);
+
         }
     }
 }

@@ -20,7 +20,7 @@ public class TaskActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task);
         LinearLayout tasksList = (LinearLayout)findViewById(R.id.tasksList);
-
+        //TODO : TO FIGURE HOW TO CLICK EACH INDIVIDUALLY
         for( int i = 0; i < Planner.tasks.size(); i++ )
         {
             TextView textView = new TextView(this);
@@ -36,6 +36,10 @@ public class TaskActivity extends AppCompatActivity {
                 textView.setBackgroundResource(R.color.green);
             tasksList.addView(textView);
         }
+
+        
+
+
 
         Button add = (Button) findViewById(R.id.addTask);
 
