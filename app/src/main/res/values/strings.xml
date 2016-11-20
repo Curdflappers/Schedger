@@ -3,4 +3,6 @@
     <string name="bn">Submit</string>
     <string name="add">+</string>
     <string name="currentTasks">Current Tasks</string>
+    <string name = "EventTitle">EVENTS</string>
+    <string name = "TasksTitle">TASKS</string>
 </resources>
