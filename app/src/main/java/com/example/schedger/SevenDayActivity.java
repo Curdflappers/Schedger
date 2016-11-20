@@ -38,7 +38,7 @@ public class SevenDayActivity extends AppCompatActivity {
         ArrayList<Task> saturdays = new ArrayList<Task>();
         ArrayList<Task> sundays = new ArrayList<Task>();
 
-        if (Planner.tasks.size() > 0) {
+        if (Planner.events.size() > 0) {
 
             for (int i = 0; i < Planner.tasks.size(); i++) {
                 if (Planner.tasks.get(i).getDay() == 1)

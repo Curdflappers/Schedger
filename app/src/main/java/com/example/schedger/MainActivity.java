@@ -137,9 +137,11 @@ public class MainActivity extends AppCompatActivity {
                     monday.addView(spacerText);
                 }
                 textView.setLayoutParams(new LinearLayout.LayoutParams
-                        (LinearLayout.LayoutParams.WRAP_CONTENT,
+                        (LinearLayout.LayoutParams.MATCH_PARENT,
                                 0, 1 * (temp.getEndTime().getHourOfDay() - time)));
                 textView.setText(mondays.get(i).getName().toString());
+                textView.setTextSize(10);
+                textView.setGravity(1);
                 textView.setBackgroundResource(R.color.red);
                 time += temp.getStartTime().getHourOfDay() - time;
                 time += temp.getEndTime().getHourOfDay() - temp.getStartTime().getHourOfDay();
@@ -167,9 +169,11 @@ public class MainActivity extends AppCompatActivity {
                     tuesday.addView(spacerText);
                 }
                 textView.setLayoutParams(new LinearLayout.LayoutParams
-                        (LinearLayout.LayoutParams.WRAP_CONTENT,
+                        (LinearLayout.LayoutParams.MATCH_PARENT,
                                 0, 1 * (temp.getEndTime().getHourOfDay() - time)));
                 textView.setText(tuesdays.get(i).getName().toString());
+                textView.setTextSize(10);
+                textView.setGravity(1);
                 textView.setBackgroundResource(R.color.red);
                 tuesday.addView(textView);
 
@@ -196,9 +200,11 @@ public class MainActivity extends AppCompatActivity {
                     wednesday.addView(spacerText);
                 }
                 textView.setLayoutParams(new LinearLayout.LayoutParams
-                        (LinearLayout.LayoutParams.WRAP_CONTENT,
+                        (LinearLayout.LayoutParams.MATCH_PARENT,
                                 0, 1 * (temp.getEndTime().getHourOfDay() - time)));
                 textView.setText(tuesdays.get(i).getName().toString());
+                textView.setTextSize(10);
+                textView.setGravity(1);
                 textView.setBackgroundResource(R.color.red);
                 wednesday.addView(textView);
 
@@ -225,9 +231,11 @@ public class MainActivity extends AppCompatActivity {
                     thursday.addView(spacerText);
                 }
                 textView.setLayoutParams(new LinearLayout.LayoutParams
-                        (LinearLayout.LayoutParams.WRAP_CONTENT,
+                        (LinearLayout.LayoutParams.MATCH_PARENT,
                                 0, 1 * (temp.getEndTime().getHourOfDay() - time)));
                 textView.setText(thursdays.get(i).getName().toString());
+                textView.setTextSize(10);
+                textView.setGravity(1);
                 textView.setBackgroundResource(R.color.red);
                 thursday.addView(textView);
 
@@ -254,9 +262,11 @@ public class MainActivity extends AppCompatActivity {
                     friday.addView(spacerText);
                 }
                 textView.setLayoutParams(new LinearLayout.LayoutParams
-                        (LinearLayout.LayoutParams.WRAP_CONTENT,
+                        (LinearLayout.LayoutParams.MATCH_PARENT,
                                 0, 1 * (temp.getEndTime().getHourOfDay() - time)));
-                textView.setText(thursdays.get(i).getName().toString());
+                textView.setText(fridays.get(i).getName().toString());
+                textView.setTextSize(10);
+                textView.setGravity(1);
                 textView.setBackgroundResource(R.color.red);
                 friday.addView(textView);
 
@@ -283,9 +293,11 @@ public class MainActivity extends AppCompatActivity {
                     saturday.addView(spacerText);
                 }
                 textView.setLayoutParams(new LinearLayout.LayoutParams
-                        (LinearLayout.LayoutParams.WRAP_CONTENT,
+                        (LinearLayout.LayoutParams.MATCH_PARENT,
                                 0, 1 * (temp.getEndTime().getHourOfDay() - time)));
-                textView.setText(thursdays.get(i).getName().toString());
+                textView.setText(saturdays.get(i).getName().toString());
+                textView.setTextSize(10);
+                textView.setGravity(1);
                 textView.setBackgroundResource(R.color.red);
                 saturday.addView(textView);
 
@@ -312,9 +324,11 @@ public class MainActivity extends AppCompatActivity {
                     sunday.addView(spacerText);
                 }
                 textView.setLayoutParams(new LinearLayout.LayoutParams
-                        (LinearLayout.LayoutParams.WRAP_CONTENT,
+                        (LinearLayout.LayoutParams.MATCH_PARENT,
                                 0, 1 * (temp.getEndTime().getHourOfDay() - time)));
-                textView.setText(thursdays.get(i).getName().toString());
+                textView.setText(sundays.get(i).getName().toString());
+                textView.setTextSize(10);
+                textView.setGravity(1);
                 textView.setBackgroundResource(R.color.red);
                 sunday.addView(textView);
 
