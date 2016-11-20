@@ -38,7 +38,8 @@
                 android:inputType="textPersonName"
                 android:text="Name"
                 android:ems="10"
-                android:id="@+id/eventNameEdit" />
+                android:id="@+id/eventNameEdit"
+                android:selectAllOnFocus="true" />
 
         </LinearLayout>
 
@@ -56,19 +57,68 @@
                 android:id="@+id/eventStartLayout">
 
                 <TextView
-                    android:text="Starts at"
+                    android:text="Start"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/eventStartText" />
 
-                <EditText
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="date"
-                    android:ems="10"
-                    android:id="@+id/eventStartEdit"
-                    android:text="[Start DateTime]" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <EditText
+                        android:layout_width="0px"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/eventStartMonthEdit"
+                        android:text="MM"
+                        android:selectAllOnFocus="true" />
+                    <EditText
+                        android:layout_width="0px"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/eventStartDayEdit"
+                        android:text="DD"
+                        android:selectAllOnFocus="true" />
+                    <EditText
+                        android:layout_width="0px"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/eventStartYearEdit"
+                        android:text="YYYY"
+                        android:selectAllOnFocus="true" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
+                    <EditText
+                        android:layout_width="0px"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/eventStartHourEdit"
+                        android:text="Hour"
+                        android:selectAllOnFocus="true" />
+
+                    <EditText
+                        android:layout_width="0px"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/eventStartMinuteEdit"
+                        android:text="Min"
+                        android:selectAllOnFocus="true" />
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -76,30 +126,73 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:id="@+id/eventEndLayout">
+                android:id="@+id/endLayout">
+
 
                 <TextView
-                    android:text="Ends at"
+                    android:text="Complete by"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/eventEndText" />
-
-                <EditText
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="date"
-                    android:ems="10"
-                    android:id="@+id/eventEndEdit"
-                    android:text="[End DateTime]" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <EditText
+                        android:layout_width="0px"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/eventEndMonthEdit"
+                        android:text="MM"
+                        android:selectAllOnFocus="true" />
+                    <EditText
+                        android:layout_width="0px"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/eventEndDayEdit"
+                        android:text="DD"
+                        android:selectAllOnFocus="true" />
+                    <EditText
+                        android:layout_width="0px"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/eventEndYearEdit"
+                        android:text="YYYY"
+                        android:selectAllOnFocus="true" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:layout_width="0px"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/eventEndHourEdit"
+                        android:text="Hour"
+                        android:selectAllOnFocus="true" />
+
+                    <EditText
+                        android:layout_width="0px"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/eventEndMinuteEdit"
+                        android:text="Min"
+                        android:selectAllOnFocus="true" />
+                </LinearLayout>
+
             </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id = "@+id/Recurring">
 
         </LinearLayout>
 
@@ -124,7 +217,8 @@
                 android:layout_weight="0.34"
                 android:inputType="textMultiLine"
                 android:text="Enter comments here..."
-                tools:gravity="top" />
+                tools:gravity="top"
+                android:selectAllOnFocus="true" />
 
         </LinearLayout>
 
@@ -133,6 +227,16 @@
             android:layout_height="wrap_content"
             app:srcCompat="@android:drawable/ic_input_add"
             android:id="@+id/saveEventButton" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/taskWrapperLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:clickable="false"
+            android:focusable="false"
+            android:id="@+id/dialogText" />
     </LinearLayout>
 
 </RelativeLayout>
