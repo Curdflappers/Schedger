@@ -11,6 +11,7 @@ import org.joda.time.Period;
 public class Task implements Comparable<Task> {
     //Inititalize instances of Task
 
+    private int id;
     private String name;
     private DateTime startTime;
     private DateTime endTime;
@@ -21,6 +22,7 @@ public class Task implements Comparable<Task> {
 
     public Task (String name, DateTime startTime, DateTime endTime, Duration duration)
     {
+        id++;
         this.name = name;
         this.startTime = startTime;
         this.endTime = endTime;
@@ -167,6 +169,6 @@ public class Task implements Comparable<Task> {
 
     @Override
     public String toString(){
-        return getName() + "\n" + getDuration() + "\n" + getTimeLeft() + "\n";
+        return getName() + "\n" + getDuration().toString() + "\n" + getTimeLeft() + "\n";
     }
 }

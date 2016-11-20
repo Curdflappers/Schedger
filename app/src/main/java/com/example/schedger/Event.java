@@ -13,6 +13,8 @@ import org.joda.time.Period;
 
 public class Event implements Comparable<Event>
 {
+    public int id = 0;
+
     public String getName() {
         return name;
     }
@@ -70,6 +72,7 @@ public class Event implements Comparable<Event>
      */
     public Event(String n, DateTime s, DateTime e, String l, String c, boolean r)
     {
+        id++;
         name = n;
         startTime = s;
         endTime = e;
@@ -107,5 +110,9 @@ public class Event implements Comparable<Event>
      *
      */
     //TODO Fix duration time to include more than just hour
-    public Period duration() { return new Period(startTime, endTime); }
+    public Period duration() {
+        Period period = new Period(startTime, endTime);
+        period.toStandardDuration();
+        return period;
+    }
 }
