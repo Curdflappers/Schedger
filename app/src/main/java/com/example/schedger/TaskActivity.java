@@ -9,13 +9,17 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 16eeeebc8fcd72a7e5d07b8ad34c89e99a5e6ab3
 public class TaskActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task);
-        LinearLayout tasksList = (LinearLayout )findViewById(R.id.tasksList);
+        LinearLayout tasksList = (LinearLayout)findViewById(R.id.tasksList);
 
         for( int i = 0; i < Planner.tasks.size(); i++ )
         {
