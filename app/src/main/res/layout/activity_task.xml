@@ -15,17 +15,26 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <TextView
-            android:text="@string/currentTasks"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/title"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+            android:id="@+id/TaskTitle"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:text="@string/TasksTitle"/>
 
-        <ListView
-            android:id="@android:id/list"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></ListView>
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/tasksList"
+                android:orientation="vertical"
+                android:paddingLeft="16dp">
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 
     <Button
