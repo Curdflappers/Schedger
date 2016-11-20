@@ -5,4 +5,7 @@
     <string name="currentTasks">Current Tasks</string>
     <string name = "EventTitle">Events</string>
     <string name = "TasksTitle">Tasks</string>
+    <string name="monthly">Monthly</string>
+    <string name="weekly">Weekly</string>
+    <string name="daily">Daily</string>
 </resources>
