@@ -91,6 +91,7 @@
                         android:text="YYYY"
                         android:selectAllOnFocus="true" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -215,6 +216,40 @@
                 android:selectAllOnFocus="true" />
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="409dp"
+            android:layout_height="wrap_content"
+            android:id = "@+id/recurrence"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+
+
+            <TextView
+                android:text="Recurrence"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:id="@+id/recurrence_text" />
+
+            <RadioButton
+                android:text="@string/monthly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioButton1"
+                android:layout_weight="0.17" />
+            <RadioButton
+                android:text="@string/weekly"
+                android:layout_width="92dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioButton2" />
+            <RadioButton
+                android:text="@string/daily"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioButton3" />
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
