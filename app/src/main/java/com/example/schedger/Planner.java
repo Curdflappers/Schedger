@@ -21,7 +21,7 @@ import java.io.File;
 public class Planner {
     public static ArrayList<Task> tasks = new ArrayList<Task>();
     public static ArrayList<Event> events = new ArrayList<Event>();
-    public static String path = getApplicationContext().getFilesDir()
+    // public static String path = getApplicationContext().getFilesDir()
 
 
     /**
