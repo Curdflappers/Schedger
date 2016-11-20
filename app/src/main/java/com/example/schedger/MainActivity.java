@@ -78,11 +78,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // Display events in right hand side of home screen (scrollable)
-        events.removeAllViews();
-        for( int i = 0; i < Planner.tasks.size(); i++ )
+        for( int i = 0; i < Planner.events.size(); i++ )
         {
             TextView textView = new TextView(this);
-            textView.setText(Planner.tasks.get(i).getName());
+            textView.setText(Planner.events.get(i).getName());
             events.addView(textView);
         }
 

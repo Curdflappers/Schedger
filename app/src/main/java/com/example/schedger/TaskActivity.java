@@ -1,8 +1,11 @@
 package com.example.schedger;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
@@ -20,17 +23,13 @@ public class TaskActivity extends ListActivity {
         setListAdapter(adapter);
 
         LinearLayout tasks = (LinearLayout) findViewById(R.id.tasks);
+
+        Button add = (Button) findViewById(R.id.addTask);
+
+        add.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                startActivity(new Intent(TaskActivity.this, NewTaskActivity.class));
+            }
+        });
     }
-//        @Override
-//        public String toString(){
-//            return Planner.
-//        }
-//        tasks.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent tasks_intent = new Intent(TaskActivity.this,TaskActivity.class);
-//                startActivity(tasks_intent );
-//            }
-//
-//        });
 }

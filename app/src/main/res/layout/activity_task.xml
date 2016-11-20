@@ -16,7 +16,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:text="Current Tasks"
+            android:text="@string/currentTasks"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/title"
@@ -27,5 +27,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"></ListView>
     </LinearLayout>
+
+    <Button
+        android:background="@drawable/roundedbuttonadd"
+        android:text="@string/add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/addTask"
+        tools:ignore="RelativeOverlap"
+        android:elevation="1dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
