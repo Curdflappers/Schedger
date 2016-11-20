@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -15,8 +14,6 @@ import org.joda.time.Period;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.example.schedger.R.id.Monday;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -112,11 +109,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void displaySchedule(int index, List<Event>[] days, LinearLayout[] layouts)
+    /**
+     * Display a day of the week
+     */
+    private void displayDayOfWeek(List<Event> day, LinearLayout layout)
     {
         int time = 7; // end of quiet hours
-        List<Event> day = days[index];
-        LinearLayout layout = layouts[index];
         // for every event in the day
         for (int i = 0; i < day.size(); i++) {
             TextView textView = new TextView(this);
@@ -179,8 +177,14 @@ public class MainActivity extends AppCompatActivity {
         List<Event> saturdays = new ArrayList<>();
         List<Event> sundays = new ArrayList<>();
 
-        List<Event>[] days = new List<Event>[]{mondays, tuesdays, wednesdays, thursdays,
-                fridays, saturdays, sundays};
+        List<List<Event>> days = new ArrayList<List<Event>>();
+        days.add(mondays);
+        days.add(tuesdays);
+        days.add(wednesdays);
+        days.add(thursdays);
+        days.add(fridays);
+        days.add(saturdays);
+        days.add(sundays);
 
         if (Planner.events.size() > 0) {
             for(Event event : Planner.events)
@@ -188,11 +192,11 @@ public class MainActivity extends AppCompatActivity {
                 Period timeFromNow = new Period(DateTime.now(), event.getStart());
                 if(timeFromNow.getDays() > 6) // not happening this week
                 { break; }
-                days[event.getStart().getDayOfWeek() - 1].add(event);
+                days.get(event.getStart().getDayOfWeek() - 1).add(event);
             }
 
-            for(int i = 0; i < days.length; i++) {
-                displaySchedule(i, days, layouts);
+            for(int i = 0; i < days.size(); i++) {
+                displayDayOfWeek(days.get(i), layouts[i]);
             }
         }
     }
