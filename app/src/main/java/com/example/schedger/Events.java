@@ -22,7 +22,8 @@ public class Events extends AppCompatActivity {
         for( int i = 0; i < Planner.events.size(); i++ )
         {
             TextView textView = new TextView(this);
-            textView.setText(Planner.events.get(i).getName() + '\n' + Planner.events.get(i).getComments() + '\n');
+            textView.setText(Planner.events.get(i).getName() + '\n'
+                    + Planner.events.get(i).getComments() + '\n');
             textView.setBackgroundResource(R.drawable.border);
             textView.setPadding(10, 10, 10, 10);
             eventsList.addView(textView);
