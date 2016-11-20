@@ -89,6 +89,8 @@ public class Task implements Comparable<Task> {
 
     public DateTime getStartTime() { return this.startTime; }
 
+    public DateTime getEndTime() { return this.endTime; }
+
     public DateTime getCurrent() { return new DateTime(); }
 
     public String getUrgency()
