@@ -10,14 +10,11 @@ import android.widget.TextView;
 import net.danlew.android.joda.JodaTimeAndroid;
 import org.joda.time.DateTime;
 import org.joda.time.Period;
-import java.util.ArrayList;
 
-import static android.R.attr.id;
-import static com.example.schedger.R.id.Monday;
+import java.util.ArrayList;
 import java.util.List;
 
-import java.io.File;
-import java.io.FileOutputStream;
+import android.widget.LinearLayout.LayoutParams;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -129,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
         if (!(Planner.events.get(i).getName().equals("Quiet Hours"))) {
             TextView textView = new TextView(this);
             textView.setText(Planner.events.get(i).display());
-            textView.setBackgroundResource(R.color.blue);
+            textView.setBackgroundResource(R.color.lightBlue);
             ((LinearLayout) findViewById(R.id.events)).addView(textView);
         }
         }
@@ -137,48 +134,58 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Display a day of the week
+     * Assumes no conflicts
+     * Displays a simple textview corresponding to each event for each day in the correct position
      */
-    private void displayDayOfWeek(List<Event> day, LinearLayout layout)
+    private void displayDayOfWeek(List<Event> day, LinearLayout layout, int daysFromNow)
     {
-        int time = 7; // end of quiet hours
+        DateTime now = (new DateTime()).plusDays(daysFromNow);
+        long beginMillis = (new DateTime(now.getYear(),
+                now.getMonthOfYear(), now.getDayOfMonth(), 7, 0)).getMillis(); // quiet hours end at 7 am
+        long quietBegin = beginMillis + 1000 * 60 * 60 * 16; // 16 hours in a day (7h to 23h)
+
+        long endMillis = 0;
+
         // for every event in the day
-        for (int i = 0; i < day.size(); i++) {
-            TextView textView = new TextView(this);
-            Event temp = day.get(i);
-            // if spacer is needed, add spacer
-            if (temp.getStart().getHourOfDay() - time > 0) {
-                TextView spacerText = new TextView(this);
-                spacerText.setLayoutParams(new LinearLayout.LayoutParams
-                        (LinearLayout.LayoutParams.WRAP_CONTENT,
-                                0, temp.getStart().getHourOfDay() - time));
-                layout.addView(spacerText);
+        for (Event event : day) {
+            // Skip any event that shouldn't be displayed (during quiet hours)
+            long eventStart = event.getStart().getMillis();
+            long eventEnd = event.getEnd().getMillis();
+
+            // if spacer is needed, add spacer (almost always)
+            if (event.getStart().getMillis() > beginMillis) {
+                layout.addView(sevenDayView(beginMillis, eventStart));
             } // end add spacer
 
-            // format textView
-            textView.setLayoutParams(new LinearLayout.LayoutParams
-                    (LinearLayout.LayoutParams.MATCH_PARENT,
-                            0, temp.getEnd().getHourOfDay() - time));
-            textView.setText(day.get(i).getName());
+            // format and add textView
+            // format textView height
+            endMillis = event.getEnd().getHourOfDay() < 23 ? eventEnd : quietBegin;
+            long startMillis = event.getEnd().getHourOfDay() >= 7 ? eventStart : beginMillis;
+            TextView textView = sevenDayView(startMillis, endMillis);
+            textView.setText(event.getName());
             textView.setTextSize(10);
             textView.setGravity(1);
             textView.setBackgroundResource(R.color.red);
-
-            // update time value
-            time += temp.getStart().getHourOfDay() - time;
-            time += temp.getEnd().getHourOfDay() - temp.getStart().getHourOfDay();
             layout.addView(textView);
 
-            // last event on this day and should be displayed
-            if (i == day.size() - 1 && 16 - temp.getEnd().getHourOfDay() > 0) {
-                if (16 - temp.getEnd().getHourOfDay() > 0) {
-                    TextView finalView = new TextView(this);
-                    finalView.setLayoutParams(new LinearLayout.LayoutParams
-                            (LinearLayout.LayoutParams.WRAP_CONTENT,
-                                    0, 16 - time));
-                    layout.addView(finalView);
-                }
-            }
+            // update end time
+            beginMillis = event.getEnd().getMillis();
         }
+        layout.addView(sevenDayView(beginMillis, quietBegin));
+    }
+
+    /**
+     * Returns a textView in a seven-day display (weighted based on end and start)
+     * @param start the begin time of this (in millis)
+     * @param end the end time of this (in millis)
+     * @return a new LayoutParams of height=MATCH_PARENT, width=0, weight=(end - start) / total
+     */
+    private TextView sevenDayView(long start, long end)
+    {
+        TextView view = new TextView(this);
+        view.setLayoutParams(new LayoutParams(
+                LayoutParams.MATCH_PARENT, 0, (int)(end - start)));
+        return view;
     }
 
     private void displaySevenDay()
@@ -211,30 +218,32 @@ public class MainActivity extends AppCompatActivity {
         days.add(saturdays);
         days.add(sundays);
 
+        // add events to days of week and display them
         if (Planner.events.size() > 0) {
             for(Event event : Planner.events)
             {
                 Period timeFromNow = new Period(DateTime.now(), event.getStart());
                 if(timeFromNow.getDays() > 6) // not happening this week
-                { break; }
+                { break; } // we have iterated through all events happening this week
                 days.get(event.getStart().getDayOfWeek() - 1).add(event);
             }
 
+            // display each layout
             for(int i = 0; i < days.size(); i++) {
-                displayDayOfWeek(days.get(i), layouts[i]);
+                displayDayOfWeek(days.get(i), layouts[i], i);
             }
         }
 
         //Displays add task/event buttons when there are none
         Button showAddEvents = (Button) this.findViewById(R.id.addEventWhenNoEvents);
-        if(Planner.events.size() == 0){
+        if(Planner.events.size() <= 7){ // one for each day of the week
             showAddEvents.setVisibility(View.VISIBLE);
             showAddEvents.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View v){
                     startActivity(new Intent(MainActivity.this, NewEvent.class));
                 }
             });
-        }else {
+        } else {
             showAddEvents.setVisibility(View.GONE);
         }
 
