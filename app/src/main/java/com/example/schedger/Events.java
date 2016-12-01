@@ -27,7 +27,7 @@ public class Events extends AppCompatActivity {
             textView.setPadding(10, 10, 10, 10);
             // blue if genEvent, gray if not
             textView.setBackgroundResource
-                    (event instanceof GenEvent ? R.color.lightBlue : R.color.lightGray);
+                    (event instanceof LinkedEvent ? R.color.lightBlue : R.color.lightGray);
             eventsList.addView(textView);
         }
 

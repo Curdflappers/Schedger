@@ -6,7 +6,7 @@ import org.joda.time.DateTime;
 /**
  * Created by mwwie on 2016-11-19.
  */
-public class GenEvent extends Event
+public class LinkedEvent extends Event
 {
     /**
      * The task this is linked to
@@ -24,7 +24,7 @@ public class GenEvent extends Event
      * @param c comments
      * @param t task this is linked to (cannot be changed)
      */
-    public GenEvent(String n, DateTime s, DateTime e, String l, String c, Task t)
+    public LinkedEvent(String n, DateTime s, DateTime e, String l, String c, Task t)
     {
         super(n, s, e, l, c, false);
         task = t;

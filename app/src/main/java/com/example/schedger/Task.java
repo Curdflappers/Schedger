@@ -18,7 +18,7 @@ public class Task implements Comparable<Task> {
     private Duration duration;
     private boolean completed;
 
-    private GenEvent genEvent; // the gen event associated with this task
+    private LinkedEvent linkedEvent; // the gen event associated with this task
 
     public Task (String name, DateTime startTime, DateTime endTime, Duration duration)
     {
@@ -30,11 +30,11 @@ public class Task implements Comparable<Task> {
         this.completed = false;
         Planner.AddTask(this);
 
-        genEvent = null; // must be created through generate schedule method
+        linkedEvent = null; // must be created through generate schedule method
     }
 
-    public GenEvent getGenEvent() { return genEvent; }
-    public void setGenEvent(GenEvent g) { genEvent = g; }
+    public LinkedEvent getLinkedEvent() { return linkedEvent; }
+    public void setLinkedEvent(LinkedEvent g) { linkedEvent = g; }
 
     /**
      * Sort by: endTime, duration, name

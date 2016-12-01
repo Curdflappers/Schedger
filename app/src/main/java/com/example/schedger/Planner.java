@@ -94,7 +94,7 @@ public class Planner {
     {
         for(Task task : tasks)
         {
-            if(!task.isCompleted() && task.getGenEvent() == null) // must add gen event
+            if(!task.isCompleted() && task.getLinkedEvent() == null) // must add gen event
             {
                 for(int i = 0; i < events.size(); i++)
                 {
@@ -106,9 +106,9 @@ public class Planner {
                                     > task.getDuration().getMillis()) // > duration of task
                     {
                         // create and add new gen event to the planner and to the task
-                        GenEvent e = new GenEvent(task.getName(), prevEnd,
+                        LinkedEvent e = new LinkedEvent(task.getName(), prevEnd,
                                 prevEnd.plus(task.getDuration().getMillis()), "", "", task);
-                        task.setGenEvent(e);
+                        task.setLinkedEvent(e);
                         break; // no longer go through each event
                     } // end if should add new gen event
                 } // end loop through each event
