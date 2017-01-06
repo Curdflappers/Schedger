@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import org.joda.time.DateTimeConstants;
+
 import java.util.ArrayList;
 
 import static android.media.CamcorderProfile.get;
@@ -41,45 +43,48 @@ public class SevenDayActivity extends AppCompatActivity {
         if (Planner.events.size() > 0) {
 
             for (int i = 0; i < Planner.tasks.size(); i++) {
-                if (Planner.tasks.get(i).getDay() == 1)
-                    mondays.add(Planner.tasks.get(i));
-                if (Planner.tasks.get(i).getDay() == 2)
-                    tuesdays.add(Planner.tasks.get(i));
-                if (Planner.tasks.get(i).getDay() == 3)
-                    wednesdays.add(Planner.tasks.get(i));
-                if (Planner.tasks.get(i).getDay() == 4)
-                    thursdays.add(Planner.tasks.get(i));
-                if (Planner.tasks.get(i).getDay() == 5)
-                    fridays.add(Planner.tasks.get(i));
-                if (Planner.tasks.get(i).getDay() == 6)
-                    saturdays.add(Planner.tasks.get(i));
-                if (Planner.tasks.get(i).getDay() == 7)
-                    sundays.add(Planner.tasks.get(i));
+                Task task = Planner.tasks.get(i);
+                switch(task.getStart().getDayOfWeek()) {
+                    case(DateTimeConstants.MONDAY):
+                        mondays.add(task); break;
+                    case(DateTimeConstants.TUESDAY):
+                        tuesdays.add(task); break;
+                    case(DateTimeConstants.WEDNESDAY):
+                        wednesdays.add(task); break;
+                    case(DateTimeConstants.THURSDAY):
+                        thursdays.add(task); break;
+                    case(DateTimeConstants.FRIDAY):
+                        fridays.add(task); break;
+                    case(DateTimeConstants.SATURDAY):
+                        saturdays.add(task); break;
+                    case(DateTimeConstants.SUNDAY):
+                        sundays.add(task); break;
+                }
             }
             int time = 7;
             for (int i = 0; i < mondays.size(); i++)
             {
                 TextView textView = new TextView(this);
                 Task temp = mondays.get(i);
-                if (temp.getStartTime().getHourOfDay() - time > 0)
+                if (temp.getStart().getHourOfDay() - time > 0)
                 {
                     TextView spacerText = new TextView(this);
                     spacerText.setLayoutParams(new LinearLayout.LayoutParams
                             (LinearLayout.LayoutParams.WRAP_CONTENT,
-                                    0, 1 * (temp.getStartTime().getHourOfDay() - time)));
+                                    0, temp.getStart().getHourOfDay() - time));
                     monday.addView(spacerText);
                 }
                 textView.setLayoutParams(new LinearLayout.LayoutParams
                         (LinearLayout.LayoutParams.WRAP_CONTENT,
-                                0, 1 * (temp.getEndTime().getHourOfDay() - time)));
-                textView.setText(mondays.get(i).getName().toString());
+                                0, temp.getEnd().getHourOfDay() - time));
+                textView.setText(mondays.get(i).getName());
                 textView.setBackgroundResource(R.color.red);
-                time += temp.getStartTime().getHourOfDay() - time;
-                time += temp.getEndTime().getHourOfDay() - temp.getStartTime().getHourOfDay();
+                time += temp.getStart().getHourOfDay() - time;
+                time += temp.getEnd().getHourOfDay() - temp.getStart().getHourOfDay();
                 monday.addView(textView);
 
                 if (i == mondays.size()-1) {
-                    if (16 - temp.getEndTime().getHourOfDay() > 0) {
+                    if (16 - temp.getEnd().getHourOfDay() > 0) {
                         TextView finalView = new TextView(this);
                         finalView.setLayoutParams(new LinearLayout.LayoutParams
                                 (LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -93,23 +98,23 @@ public class SevenDayActivity extends AppCompatActivity {
             {
                 TextView textView = new TextView(this);
                 Task temp = tuesdays.get(i);
-                if (temp.getStartTime().getHourOfDay() - time > 0)
+                if (temp.getStart().getHourOfDay() - time > 0)
                 {
                     TextView spacerText = new TextView(this);
                     spacerText.setLayoutParams(new LinearLayout.LayoutParams
                             (LinearLayout.LayoutParams.WRAP_CONTENT,
-                                    0, 1 * (temp.getStartTime().getHourOfDay() - time)));
+                                    0, temp.getStart().getHourOfDay() - time));
                     tuesday.addView(spacerText);
                 }
                 textView.setLayoutParams(new LinearLayout.LayoutParams
                         (LinearLayout.LayoutParams.WRAP_CONTENT,
-                                0, 1 * (temp.getEndTime().getHourOfDay() - time)));
-                textView.setText(tuesdays.get(i).getName().toString());
+                                0, temp.getEnd().getHourOfDay() - time));
+                textView.setText(tuesdays.get(i).getName());
                 textView.setBackgroundResource(R.color.red);
                 tuesday.addView(textView);
 
                 if (i == tuesdays.size()-1) {
-                    if (16 - temp.getEndTime().getHourOfDay() > 0) {
+                    if (16 - temp.getEnd().getHourOfDay() > 0) {
                         TextView finalView = new TextView(this);
                         finalView.setLayoutParams(new LinearLayout.LayoutParams
                                 (LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -124,23 +129,23 @@ public class SevenDayActivity extends AppCompatActivity {
             {
                 TextView textView = new TextView(this);
                 Task temp = wednesdays.get(i);
-                if (temp.getStartTime().getHourOfDay() - time > 0)
+                if (temp.getStart().getHourOfDay() - time > 0)
                 {
                     TextView spacerText = new TextView(this);
                     spacerText.setLayoutParams(new LinearLayout.LayoutParams
                             (LinearLayout.LayoutParams.WRAP_CONTENT,
-                                    0, 1 * (temp.getStartTime().getHourOfDay() - time)));
+                                    0, temp.getStart().getHourOfDay() - time));
                     wednesday.addView(spacerText);
                 }
                 textView.setLayoutParams(new LinearLayout.LayoutParams
                         (LinearLayout.LayoutParams.WRAP_CONTENT,
-                                0, 1 * (temp.getEndTime().getHourOfDay() - time)));
-                textView.setText(tuesdays.get(i).getName().toString());
+                                0, temp.getEnd().getHourOfDay() - time));
+                textView.setText(tuesdays.get(i).getName());
                 textView.setBackgroundResource(R.color.red);
                 wednesday.addView(textView);
 
                 if (i == wednesdays.size()-1) {
-                    if (16 - temp.getEndTime().getHourOfDay() > 0) {
+                    if (16 - temp.getEnd().getHourOfDay() > 0) {
                         TextView finalView = new TextView(this);
                         finalView.setLayoutParams(new LinearLayout.LayoutParams
                                 (LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -155,23 +160,23 @@ public class SevenDayActivity extends AppCompatActivity {
             {
                 TextView textView = new TextView(this);
                 Task temp = thursdays.get(i);
-                if (temp.getStartTime().getHourOfDay() - time > 0)
+                if (temp.getStart().getHourOfDay() - time > 0)
                 {
                     TextView spacerText = new TextView(this);
                     spacerText.setLayoutParams(new LinearLayout.LayoutParams
                             (LinearLayout.LayoutParams.WRAP_CONTENT,
-                                    0, 1 * (temp.getStartTime().getHourOfDay() - time)));
+                                    0, temp.getStart().getHourOfDay() - time));
                     thursday.addView(spacerText);
                 }
                 textView.setLayoutParams(new LinearLayout.LayoutParams
                         (LinearLayout.LayoutParams.WRAP_CONTENT,
-                                0, 1 * (temp.getEndTime().getHourOfDay() - time)));
-                textView.setText(thursdays.get(i).getName().toString());
+                                0, temp.getEnd().getHourOfDay() - time));
+                textView.setText(thursdays.get(i).getName());
                 textView.setBackgroundResource(R.color.red);
                 thursday.addView(textView);
 
                 if (i == thursdays.size()-1) {
-                    if (16 - temp.getEndTime().getHourOfDay() > 0) {
+                    if (16 - temp.getEnd().getHourOfDay() > 0) {
                         TextView finalView = new TextView(this);
                         finalView.setLayoutParams(new LinearLayout.LayoutParams
                                 (LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -186,23 +191,23 @@ public class SevenDayActivity extends AppCompatActivity {
             {
                 TextView textView = new TextView(this);
                 Task temp = fridays.get(i);
-                if (temp.getStartTime().getHourOfDay() - time > 0)
+                if (temp.getStart().getHourOfDay() - time > 0)
                 {
                     TextView spacerText = new TextView(this);
                     spacerText.setLayoutParams(new LinearLayout.LayoutParams
                             (LinearLayout.LayoutParams.WRAP_CONTENT,
-                                    0, 1 * (temp.getStartTime().getHourOfDay() - time)));
+                                    0, temp.getStart().getHourOfDay() - time));
                     friday.addView(spacerText);
                 }
                 textView.setLayoutParams(new LinearLayout.LayoutParams
                         (LinearLayout.LayoutParams.WRAP_CONTENT,
-                                0, 1 * (temp.getEndTime().getHourOfDay() - time)));
-                textView.setText(thursdays.get(i).getName().toString());
+                                0, temp.getEnd().getHourOfDay() - time));
+                textView.setText(thursdays.get(i).getName());
                 textView.setBackgroundResource(R.color.red);
                 friday.addView(textView);
 
                 if (i == fridays.size()-1) {
-                    if (16 - temp.getEndTime().getHourOfDay() > 0) {
+                    if (16 - temp.getEnd().getHourOfDay() > 0) {
                         TextView finalView = new TextView(this);
                         finalView.setLayoutParams(new LinearLayout.LayoutParams
                                 (LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -217,23 +222,23 @@ public class SevenDayActivity extends AppCompatActivity {
             {
                 TextView textView = new TextView(this);
                 Task temp = saturdays.get(i);
-                if (temp.getStartTime().getHourOfDay() - time > 0)
+                if (temp.getStart().getHourOfDay() - time > 0)
                 {
                     TextView spacerText = new TextView(this);
                     spacerText.setLayoutParams(new LinearLayout.LayoutParams
                             (LinearLayout.LayoutParams.WRAP_CONTENT,
-                                    0, 1 * (temp.getStartTime().getHourOfDay() - time)));
+                                    0, temp.getStart().getHourOfDay() - time));
                     saturday.addView(spacerText);
                 }
                 textView.setLayoutParams(new LinearLayout.LayoutParams
                         (LinearLayout.LayoutParams.WRAP_CONTENT,
-                                0, 1 * (temp.getEndTime().getHourOfDay() - time)));
-                textView.setText(thursdays.get(i).getName().toString());
+                                0, temp.getEnd().getHourOfDay() - time));
+                textView.setText(thursdays.get(i).getName());
                 textView.setBackgroundResource(R.color.red);
                 saturday.addView(textView);
 
                 if (i == saturdays.size()-1) {
-                    if (16 - temp.getEndTime().getHourOfDay() > 0) {
+                    if (16 - temp.getEnd().getHourOfDay() > 0) {
                         TextView finalView = new TextView(this);
                         finalView.setLayoutParams(new LinearLayout.LayoutParams
                                 (LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -248,23 +253,23 @@ public class SevenDayActivity extends AppCompatActivity {
             {
                 TextView textView = new TextView(this);
                 Task temp = sundays.get(i);
-                if (temp.getStartTime().getHourOfDay() - time > 0)
+                if (temp.getStart().getHourOfDay() - time > 0)
                 {
                     TextView spacerText = new TextView(this);
                     spacerText.setLayoutParams(new LinearLayout.LayoutParams
                             (LinearLayout.LayoutParams.WRAP_CONTENT,
-                                    0, 1 * (temp.getStartTime().getHourOfDay() - time)));
+                                    0, temp.getStart().getHourOfDay() - time));
                     sunday.addView(spacerText);
                 }
                 textView.setLayoutParams(new LinearLayout.LayoutParams
                         (LinearLayout.LayoutParams.WRAP_CONTENT,
-                                0, 1 * (temp.getEndTime().getHourOfDay() - time)));
-                textView.setText(thursdays.get(i).getName().toString());
+                                0, temp.getEnd().getHourOfDay() - time));
+                textView.setText(thursdays.get(i).getName());
                 textView.setBackgroundResource(R.color.red);
                 sunday.addView(textView);
 
                 if (i == sundays.size()-1) {
-                    if (16 - temp.getEndTime().getHourOfDay() > 0) {
+                    if (16 - temp.getEnd().getHourOfDay() > 0) {
                         TextView finalView = new TextView(this);
                         finalView.setLayoutParams(new LinearLayout.LayoutParams
                                 (LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -273,7 +278,6 @@ public class SevenDayActivity extends AppCompatActivity {
                     }
                 }
             }
-
         }
     }
 }

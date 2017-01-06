@@ -56,7 +56,6 @@ public class NewEvent extends AppCompatActivity {
                         Integer.parseInt(eventEndHourEdit.getText().toString()),
                         Integer.parseInt(eventEndMinuteEdit.getText().toString()));
 
-                boolean shouldBreak = false;
                 if(endDate.isBeforeNow() || endDate.isBefore(startDate))
                 {
                     ((TextView)findViewById(R.id.dialogText)).setText("Invalid end time." +
@@ -64,8 +63,8 @@ public class NewEvent extends AppCompatActivity {
                     return;
                 }
 
-                Event newEvent = new Event(eventNameEdit.getText().toString(), startDate,
-                        endDate, "", "", false);
+                Event newEvent = new Event(eventNameEdit.getText().toString(),
+                        startDate, endDate, false);
                 Intent events_intent = new Intent(NewEvent.this, MainActivity.class);
                 startActivity(events_intent);
             }

@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+/**
+ * The java code for the events activity
+ */
 public class Events extends AppCompatActivity {
 
     @Override

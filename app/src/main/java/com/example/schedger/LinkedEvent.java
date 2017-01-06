@@ -1,6 +1,5 @@
 package com.example.schedger;
 
-
 import org.joda.time.DateTime;
 
 /**
@@ -20,13 +19,11 @@ public class LinkedEvent extends Event
      * @param n name
      * @param s start
      * @param e end
-     * @param l location
-     * @param c comments
      * @param t task this is linked to (cannot be changed)
      */
-    public LinkedEvent(String n, DateTime s, DateTime e, String l, String c, Task t)
+    public LinkedEvent(String n, DateTime s, DateTime e, Task t)
     {
-        super(n, s, e, l, c, false);
+        super(n, s, e, false);
         task = t;
     }
 }
