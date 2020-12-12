@@ -9,7 +9,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import org.joda.time.DateTime;
-import org.joda.time.Duration;
 
 /**
  * Defines behavior for New Event Activity
@@ -21,7 +20,7 @@ public class NewEvent extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_event);
         createSaveButtonListener();
-        setDateTimePickerOrdering();
+        setOrdering();
         populateDefaultValues();
     }
 
@@ -71,7 +70,7 @@ public class NewEvent extends AppCompatActivity {
         });
     }
 
-    void setDateTimePickerOrdering()
+    void setOrdering()
     {
         View[] order = {findViewById(R.id.eventNameEdit),
                 findViewById(R.id.eventStartMonthEdit),
@@ -99,14 +98,15 @@ public class NewEvent extends AppCompatActivity {
      */
     void populateDefaultValues()
     {
-        DateTime current = new DateTime();
+        DateTime now = new DateTime();
         ((EditText)findViewById(R.id.eventNameEdit)).setText("New Event");
-        ((EditText)findViewById(R.id.eventStartMonthEdit)).setText("" + current.getMonthOfYear());
-        ((EditText)findViewById(R.id.eventStartDayEdit)).setText("" + current.getDayOfMonth());
-        ((EditText)findViewById(R.id.eventStartYearEdit)).setText("" + current.getYear());
-        ((EditText)findViewById(R.id.eventStartHourEdit)).setText("" + current.getHourOfDay());
-        ((EditText)findViewById(R.id.eventStartMinuteEdit)).setText("" + current.getMinuteOfHour());
-        DateTime end = current.plusHours(1);
+        ((EditText)findViewById(R.id.eventStartMonthEdit)).setText("" + now.getMonthOfYear());
+        ((EditText)findViewById(R.id.eventStartDayEdit)).setText("" + now.getDayOfMonth());
+        ((EditText)findViewById(R.id.eventStartYearEdit)).setText("" + now.getYear());
+        ((EditText)findViewById(R.id.eventStartHourEdit)).setText("" + now.getHourOfDay());
+        ((EditText)findViewById(R.id.eventStartMinuteEdit)).setText("" + now.getMinuteOfHour());
+
+        DateTime end = now.plusHours(1);
         ((EditText)findViewById(R.id.eventEndMonthEdit)).setText("" + end.getMonthOfYear());
         ((EditText)findViewById(R.id.eventEndDayEdit)).setText("" + end.getDayOfMonth());
         ((EditText)findViewById(R.id.eventEndYearEdit)).setText("" + end.getYear());

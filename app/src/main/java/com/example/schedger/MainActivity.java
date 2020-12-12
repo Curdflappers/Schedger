@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private void createButtonBindings() {
 
-        LinearLayout layoutTask = (LinearLayout) findViewById(R.id.tasks);
+        LinearLayout layoutTask = (LinearLayout)findViewById(R.id.tasks);
 //        TextView moreTasks = (TextView) findViewById(R.id.seeMoreTasks);
         layoutTask.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        LinearLayout layoutEvent = (LinearLayout) findViewById(R.id.events);
+        LinearLayout layoutEvent = (LinearLayout)findViewById(R.id.events);
 //        TextView moreEvents = (TextView) findViewById(R.id.seeMoreEvents);
         layoutEvent.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        TextView tasksText = (TextView) findViewById(R.id.tasksText);
+        TextView tasksText = (TextView)findViewById(R.id.tasksText);
         tasksText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        TextView eventsText = (TextView) findViewById(R.id.eventsText);
+        TextView eventsText = (TextView)findViewById(R.id.eventsText);
         eventsText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        TextView seeMoreTasks = (TextView) findViewById(R.id.seeMoreTasks);
+        TextView seeMoreTasks = (TextView)findViewById(R.id.seeMoreTasks);
         seeMoreTasks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        TextView seeMoreEvents = (TextView) findViewById(R.id.seeMoreEvents);
+        TextView seeMoreEvents = (TextView)findViewById(R.id.seeMoreEvents);
         seeMoreEvents.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
             TextView textView = new TextView(this);
             textView.setText(Planner.events.get(i).display());
             textView.setBackgroundResource(R.color.lightBlue);
-            ((LinearLayout) findViewById(R.id.events)).addView(textView);
+            ((LinearLayout)findViewById(R.id.events)).addView(textView);
         }
         }
     }

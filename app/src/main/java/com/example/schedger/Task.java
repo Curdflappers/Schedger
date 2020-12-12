@@ -137,4 +137,9 @@ public class Task extends PlannerItem<Task> {
     public String toString(){
         return getName() + "\n" + getDuration().toString() + "\n" + getTimeLeft() + "\n";
     }
+
+    @Override
+    public String display() {
+        return getName() + "\n" + getTimeLeft();
+    }
 }

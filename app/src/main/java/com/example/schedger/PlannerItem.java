@@ -36,4 +36,7 @@ public abstract class PlannerItem<T> implements Comparable<T> {
     public void setStart(DateTime s) { start = s; }
     public void setEnd(DateTime e) { end = e; }
     public void setRecurrence(boolean r) { recurrence = r; }
+
+    /** Important information about this item */
+    public abstract String display();
 }

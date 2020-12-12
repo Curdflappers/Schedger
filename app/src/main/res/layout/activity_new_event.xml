@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:text="Name"
+                android:text="New Event"
                 android:ems="10"
                 android:id="@+id/eventNameEdit"
                 android:selectAllOnFocus="true" />
@@ -57,7 +57,7 @@
                 android:id="@+id/eventStartLayout">
 
                 <TextView
-                    android:text="Start"
+                    android:text="Starts at"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/eventStartText" />
@@ -130,7 +130,7 @@
 
 
                 <TextView
-                    android:text="Complete by"
+                    android:text="End at"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/eventEndText" />
